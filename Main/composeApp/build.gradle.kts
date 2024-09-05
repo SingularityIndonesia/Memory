@@ -41,7 +41,7 @@ kotlin {
             Shared("bottomsheetflow")
 
             presentation("authentication")
-            model("authentiation")
+            model("authentication")
             presentation("dashboard")
             model("dashboard")
         }
