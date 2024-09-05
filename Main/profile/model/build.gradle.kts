@@ -1,4 +1,3 @@
-import plugin.convention.companion.model
 import plugin.convention.companion.System
 
 plugins {
@@ -14,8 +13,6 @@ kotlin{
         commonMain.dependencies {
             System("core")
 
-            model("profile")
-
             // fixme: add to catalog
             implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.1")
         }
@@ -23,7 +20,8 @@ kotlin{
 }
 
 android {
-    namespace = "main.authentication.model"
+    namespace = "main.profile.model"
+    
 }
 
 task("testClasses")

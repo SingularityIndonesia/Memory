@@ -13,16 +13,17 @@ import com.pluto.plugins.rooms.db.PlutoRoomsDatabasePlugin
 import com.singularity.basemobile.BuildConfig
 
 class MainApplication : Application() {
-
     override fun onCreate() {
         super.onCreate()
 
-        if (BuildConfig.DEBUG)
+        if (BuildConfig.DEBUG) {
             applyPlutoExtension()
+        }
     }
 
     fun Application.applyPlutoExtension() {
-        Pluto.Installer(application = this)
+        Pluto
+            .Installer(application = this)
             .addPlugin(PlutoNetworkPlugin())
             .addPlugin(PlutoLoggerPlugin())
             .addPlugin(PlutoSharePreferencesPlugin())
@@ -35,7 +36,7 @@ class MainApplication : Application() {
             Log.d(
                 "Pluto exception report",
                 "uncaught exception handled on thread: " + thread.name,
-                throwable
+                throwable,
             )
         }
 
@@ -43,7 +44,7 @@ class MainApplication : Application() {
             Log.d(
                 "Pluto exception report",
                 "potential ANR detected on thread: " + thread.name,
-                exception
+                exception,
             )
         }
 

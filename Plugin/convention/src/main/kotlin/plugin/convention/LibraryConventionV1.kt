@@ -15,7 +15,6 @@ import plugin.convention.companion.withLibraryExtension
 import plugin.convention.companion.withPluginManager
 
 class LibraryConventionV1 : Plugin<Project> {
-
     override fun apply(project: Project) =
         with(project) {
             val libs = versionCatalog
@@ -65,15 +64,30 @@ class LibraryConventionV1 : Plugin<Project> {
             }
 
             withLibraryExtension {
-                compileSdk = libs.findVersion("android-compileSdk").get().toString().toInt()
+                compileSdk =
+                    libs
+                        .findVersion("android-compileSdk")
+                        .get()
+                        .toString()
+                        .toInt()
 
                 sourceSets["main"].manifest.srcFile("android/AndroidManifest.xml")
                 sourceSets["main"].res.srcDirs("android/res")
                 sourceSets["main"].resources.srcDirs("common/res")
 
                 defaultConfig {
-                    minSdk = libs.findVersion("android-minSdk").get().toString().toInt()
-                    targetSdk = libs.findVersion("android-targetSdk").get().toString().toInt()
+                    minSdk =
+                        libs
+                            .findVersion("android-minSdk")
+                            .get()
+                            .toString()
+                            .toInt()
+                    targetSdk =
+                        libs
+                            .findVersion("android-targetSdk")
+                            .get()
+                            .toString()
+                            .toInt()
                 }
                 packaging {
                     resources {
@@ -91,5 +105,4 @@ class LibraryConventionV1 : Plugin<Project> {
                 }
             }
         }
-
 }

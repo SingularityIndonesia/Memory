@@ -1,17 +1,14 @@
+import plugin.convention.companion.model
 import plugin.convention.companion.Shared
 import plugin.convention.companion.System
-import plugin.convention.companion.data
-import plugin.convention.companion.model
 
 plugins {
     id("LibraryConventionV1")
     id("CompileIOS")
-    // id("CompileWasm")
+    /*id("CompileWasm")*/
     id("FeatureCoroutine")
-    id("FeaturePane")
     id("FeatureSerialization")
     id("FeatureHttpClient")
-    id("FeatureContextReceiver")
 }
 
 kotlin {
@@ -20,15 +17,14 @@ kotlin {
             System("core")
             Shared("common")
 
-            data("authentication")
-            model("authentication")
+            model("profile")
         }
     }
 }
 
 android {
 
-    namespace = "main.authentication.presentation"
+    namespace = "main.profile.data"
 }
 
 task("testClasses")

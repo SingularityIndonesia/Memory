@@ -15,6 +15,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
+import authentication.pane.login.LoginPane
 import common.StateSaver
 import common.getPlatform
 import common.isIOS
@@ -47,12 +48,14 @@ fun App() {
                     .padding(top = topPadding)
                     .imePadding(),
         ) {
-            with(context) {
+            /*with(context) {
                 MainNavigation(
                     navController = navController,
                     stateSaver = stateSaver,
                 )
-            }
+            }*/
+
+            LoginPane()
         }
     }
 }
