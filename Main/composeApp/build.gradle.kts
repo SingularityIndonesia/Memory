@@ -40,14 +40,10 @@ kotlin {
             Shared("webclient")
             Shared("bottomsheetflow")
 
-            // presentation("authentication")
-            // model("authentication")
+            presentation("authentication")
+            model("authentiation")
             presentation("dashboard")
             model("dashboard")
-            // presentation("todolist")
-            // model("todolist")
-            // presentation("aichat")
-            // model("aichat")
         }
     }
 }
