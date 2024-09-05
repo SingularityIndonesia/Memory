@@ -30,7 +30,7 @@ class LoginViewModel(
                         state.copy(
                             showLoading = false,
                             showLoginErrorSnackBar = true,
-                            loginErrorSnackBarMessage = "Login Failed: ${result.e.message}",
+                            loginErrorSnackBarMessage = "Login Failed: ${result.e.cause?.message}",
                         )
                 }
 
@@ -42,7 +42,7 @@ class LoginViewModel(
             reduce { state.copy(showBottomSheet = false) }
         }
 
-    fun dismissSnackBar() =
+    fun dismissLoginErrorSnackBar() =
         intent {
             reduce { state.copy(showLoginErrorSnackBar = false) }
         }
