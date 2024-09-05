@@ -1,8 +1,18 @@
 package profile
 
 import core.operation.SystemResult
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import profile.entity.UserBasicInfo
 
 class ProfileModel {
-    suspend fun getBasicInfo(): SystemResult<UserBasicInfo> = TODO()
+    suspend fun getUserBasicInfo(): SystemResult<UserBasicInfo> =
+        withContext(Dispatchers.Default) {
+            TODO()
+        }
+
+    internal suspend fun saveUserBasicInfo(userBasicInfo: UserBasicInfo): SystemResult<UserBasicInfo> =
+        withContext(Dispatchers.Default) {
+            TODO()
+        }
 }
