@@ -44,3 +44,10 @@ inline fun <T> SystemResult<T>.onSuccess(crossinline block: (T) -> Unit): System
     }
     return this
 }
+
+inline fun <T> SystemResult<T>.onError(crossinline block: (SystemException) -> Unit): SystemResult<T> {
+    if (this is Error) {
+        block.invoke(this.e)
+    }
+    return this
+}
