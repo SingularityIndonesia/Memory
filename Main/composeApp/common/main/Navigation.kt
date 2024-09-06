@@ -6,33 +6,26 @@ package main
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import common.StateSaver
 import core.ui.SingularityScope
+import dashboard.pane.dashboard.DashboardPane
 
-context(SingularityScope, MainContext)
+context(SingularityScope)
 @Composable
 fun MainNavigation(
     navController: NavHostController,
     stateSaver: StateSaver,
 ) {
-//    NavHost(
-//        navController = navController,
-//        startDestination = DashboardRoute.ROUTE,
-//    ) {
-//
-//        composable(
-//            route = DashboardRoute.ROUTE,
-//        ) {
-//            with(dashboardContext) {
-//                DashboardPane(
-//                    gotoGroot = {
-//                        navController.navigate("groot")
-//                    },
-//                    gotoTodoDetail = {
-//                        navController.navigate("todo-detail/${it.value}")
-//                    },
-//                )
-//            }
-//        }
-//    }
+    NavHost(
+        navController = navController,
+        startDestination = "dashboard",
+    ) {
+        composable(
+            route = "dashboard",
+        ) {
+            DashboardPane()
+        }
+    }
 }
