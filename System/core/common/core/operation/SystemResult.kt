@@ -20,8 +20,8 @@ sealed class SystemResult<out T> {
         }
 }
 
-inline fun <T,R> SystemResult<T>.map(block: (T) -> R): SystemResult<R> =
-    when(this) {
+inline fun <T, R> SystemResult<T>.map(block: (T) -> R): SystemResult<R> =
+    when (this) {
         is Success -> Success(block.invoke(this.data))
         is Error -> this
     }
@@ -33,7 +33,14 @@ inline fun <T> SystemResult<T>.getOrElse(block: (SystemException) -> T): T =
     }
 
 inline fun <T, R> SystemResult<T>.flatMap(block: (T) -> SystemResult<R>): SystemResult<R> =
-    when(this) {
+    when (this) {
         is Success -> block.invoke(this.data)
         is Error -> this
     }
+
+inline fun <T> SystemResult<T>.onSuccess(crossinline block: (T) -> Unit): SystemResult<T> {
+    if (this is Success) {
+        block.invoke(this.data)
+    }
+    return this
+}

@@ -11,7 +11,7 @@ class ProfileModel {
             TODO()
         }
 
-    internal suspend fun saveUserBasicInfo(userBasicInfo: UserBasicInfo): SystemResult<UserBasicInfo> =
+    suspend fun saveUserBasicInfo(userBasicInfo: UserBasicInfo): SystemResult<UserBasicInfo> =
         withContext(Dispatchers.Default) {
             TODO()
         }

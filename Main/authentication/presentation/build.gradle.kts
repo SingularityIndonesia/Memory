@@ -22,6 +22,7 @@ kotlin {
 
             data("authentication")
             model("authentication")
+            model("profile")
         }
     }
 }
