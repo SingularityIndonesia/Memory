@@ -48,13 +48,12 @@ fun App() {
                     .padding(top = topPadding)
                     .imePadding(),
         ) {
-            /*with(context) {
-                MainNavigation(
-                    navController = navController,
-                    stateSaver = stateSaver,
-                )
-            }*/
+            MainNavigation(
+                navController = navController,
+                stateSaver = stateSaver,
+            )
 
+            // protocol layer
             LoginPane()
         }
     }
