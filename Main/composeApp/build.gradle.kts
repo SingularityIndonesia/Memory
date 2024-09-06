@@ -49,7 +49,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.singularity.basemobile"
+    namespace = cfg("APP_ID").replace("\"", "")
 
     defaultConfig {
         resValue("string", "app_name", cfg("APP_NAME").replace("\"", ""))
