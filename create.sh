@@ -101,8 +101,6 @@ kotlin {
 EOF
 )
 data_script_pt2="
-
-            model(\"$NAME\")
         }
     }
 }
@@ -122,12 +120,24 @@ EOF
 data_script="$data_script_pt1$data_script_pt2$data_script_pt3$data_script_pt4"
 
 model_pt1=$(cat <<'EOF'
+import plugin.convention.companion.Shared
+import plugin.convention.companion.System
+
 plugins {
     id("LibraryConventionV1")
     id("CompileIOS")
     /*id("CompileWasm")*/
     id("FeatureCoroutine")
     id("FeatureSerialization")
+}
+
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            System("core")
+            Shared("common")
+        }
+    }
 }
 
 android {
