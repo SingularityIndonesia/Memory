@@ -32,7 +32,8 @@ if [[ ! "$TYPE" =~ ^(main|shared|system)$ ]]; then
   exit 1
 fi
 
-# PRESENTATION SCRIPT
+# PRESENTATION SCRIPT ------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 presentation_script_pt1=$(cat <<'EOF'
 import plugin.convention.companion.Shared
 import plugin.convention.companion.System
@@ -78,6 +79,9 @@ EOF
 
 presentation_script="$presentation_script_pt1$presentation_script_pt2$presentation_script_pt3$presentation_script_pt4"
 
+
+# DATA SCRIPT --------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 data_script_pt1=$(cat <<'EOF'
 import plugin.convention.companion.model
 import plugin.convention.companion.Shared
@@ -119,6 +123,9 @@ EOF
 
 data_script="$data_script_pt1$data_script_pt2$data_script_pt3$data_script_pt4"
 
+
+# MODEL SCRIPT -------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 model_pt1=$(cat <<'EOF'
 import plugin.convention.companion.Shared
 import plugin.convention.companion.System
@@ -155,6 +162,9 @@ EOF
 
 model_script="$model_pt1$model_pt2$model_pt3"
 
+
+# COMMON LIBRARY SCRIPT ----------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 common_library_pt1=$(cat <<'EOF'
 plugins {
     id("LibraryConventionV1")
@@ -178,6 +188,9 @@ EOF
 
 common_library_scipt="$common_library_pt1$common_library_pt2$common_library_pt3"
 
+
+# CREATORS -----------------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------------------------
 createMain() {
   # shellcheck disable=SC2164
   mkdir "Main/$NAME"
@@ -221,7 +234,8 @@ createCommonLibrary() {
   cd ..
 }
 
-# Run the appropriate create function based on the target
+# Run the appropriate create function based on the target ------------------------------------------
+# --------------------------------------------------------------------------------------------------
 case "$TYPE" in
   "main")
     createMain
