@@ -97,3 +97,14 @@ File(settingsDir, "./profile")
     ?.onEach { dir ->
         include(":profile:${dir.name}")
     }?.toList()
+
+
+File(settingsDir, "./post")
+    .listFiles()
+    ?.asSequence()
+    ?.filter { it.isDirectory }
+    ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
+    ?.onEach { dir ->
+        include(":post:${dir.name}")
+    }
+    ?.toList()
