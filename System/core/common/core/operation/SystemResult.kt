@@ -12,12 +12,6 @@ sealed class SystemResult<out T> {
     data class Error(
         val e: SystemException,
     ) : SystemResult<Nothing>()
-
-    inline fun <R> map(block: (T) -> R): SystemResult<R> =
-        when (this) {
-            is Success -> Success(block(this.data))
-            is Error -> Error(this.e)
-        }
 }
 
 inline fun <T, R> SystemResult<T>.map(block: (T) -> R): SystemResult<R> =
