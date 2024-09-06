@@ -28,7 +28,7 @@ class LoginViewModel(
                     .onSuccess { data ->
                         viewModelScope.launch {
                             authenticationModel.saveToken(data.token)
-                            profileModel.saveUserBasicInfo(data.user)
+                            // profileModel.saveUserBasicInfo(data.user)
                         }
                     }
 

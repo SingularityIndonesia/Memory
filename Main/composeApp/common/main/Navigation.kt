@@ -10,7 +10,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import common.StateSaver
 import core.ui.SingularityScope
-import dashboard.pane.dashboard.DashboardPane
+import main.pane.dashboard.DashboardPane
 
 context(SingularityScope)
 @Composable

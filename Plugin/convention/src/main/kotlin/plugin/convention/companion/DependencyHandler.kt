@@ -59,7 +59,7 @@ val debugAllImplementation: DependencyHandler.(Any) -> Unit =
             debugImplementation,
             devDebugImplementation,
             stagingDebugImplementation,
-            prodDebugImplementation
+            prodDebugImplementation,
         ).forEach {
             it(pkg)
         }
@@ -71,7 +71,7 @@ val releaseAllImplementation: DependencyHandler.(Any) -> Unit =
             releaseImplementation,
             devReleaseImplementation,
             stagingReleaseImplementation,
-            prodReleaseImplementation
+            prodReleaseImplementation,
         ).forEach {
             it(pkg)
         }
@@ -90,6 +90,7 @@ fun KotlinDependencyHandler.Shared(pkgName: String) {
  * Import data module from project neighbor.
  */
 fun KotlinDependencyHandler.data(pkgName: String) {
+    if (project.name == "data") throw Error("Data cannot depends on another data")
     implementation(project(":$pkgName:data"))
 }
 
@@ -97,6 +98,8 @@ fun KotlinDependencyHandler.data(pkgName: String) {
  * Import model module from project neighbor.
  */
 fun KotlinDependencyHandler.model(pkgName: String) {
+    if (project.name == "model") throw Error("Model cannot depends on another model")
+    if (project.name == "data") throw Error("Data cannot depends on model")
     implementation(project(":$pkgName:model"))
 }
 
@@ -104,5 +107,8 @@ fun KotlinDependencyHandler.model(pkgName: String) {
  * Import presentation module from project neighbor.
  */
 fun KotlinDependencyHandler.presentation(pkgName: String) {
+    if (project.name == "presentation") throw Error("Presentation cannot depends on another presentation")
+    if (project.name == "model") throw Error("Model cannot depends on presentation")
+    if (project.name == "data") throw Error("Data cannot depends on presentation")
     implementation(project(":$pkgName:presentation"))
 }

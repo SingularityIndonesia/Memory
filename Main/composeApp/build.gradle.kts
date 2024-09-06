@@ -6,7 +6,6 @@ import plugin.convention.companion.ReleaseNote
 import plugin.convention.companion.Shared
 import plugin.convention.companion.System
 import plugin.convention.companion.cfg
-import plugin.convention.companion.model
 import plugin.convention.companion.presentation
 
 plugins {
@@ -41,9 +40,9 @@ kotlin {
             Shared("bottomsheetflow")
 
             presentation("authentication")
-            model("authentication")
-            presentation("dashboard")
-            model("dashboard")
+            presentation("discover")
+            presentation("profile")
+            presentation("memories")
         }
     }
 }

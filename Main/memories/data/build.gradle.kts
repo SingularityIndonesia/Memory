@@ -21,7 +21,7 @@ kotlin {
 
 android {
 
-    namespace = "main.authentication.data"
+    namespace = "main.memories.data"
 }
 
 task("testClasses")

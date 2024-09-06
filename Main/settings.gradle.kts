@@ -71,15 +71,6 @@ fun includeModuleRecursively(name: String) {
 
 include(":composeApp")
 
-File(settingsDir, "./dashboard")
-    .listFiles()
-    ?.asSequence()
-    ?.filter { it.isDirectory }
-    ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
-    ?.onEach { dir ->
-        include(":dashboard:${dir.name}")
-    }?.toList()
-
 File(settingsDir, "./authentication")
     .listFiles()
     ?.asSequence()
@@ -98,13 +89,20 @@ File(settingsDir, "./profile")
         include(":profile:${dir.name}")
     }?.toList()
 
-
-File(settingsDir, "./post")
+File(settingsDir, "./discover")
     .listFiles()
     ?.asSequence()
     ?.filter { it.isDirectory }
     ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
     ?.onEach { dir ->
-        include(":post:${dir.name}")
-    }
-    ?.toList()
+        include(":discover:${dir.name}")
+    }?.toList()
+
+File(settingsDir, "./memories")
+    .listFiles()
+    ?.asSequence()
+    ?.filter { it.isDirectory }
+    ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
+    ?.onEach { dir ->
+        include(":memories:${dir.name}")
+    }?.toList()
