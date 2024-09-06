@@ -18,9 +18,9 @@ class LoginViewModel(
     fun login() =
         intent {
             reduce { state.copy(showLoading = true) }
-
+            val result = authenticationModel.login()
             val newState =
-                when (val result = authenticationModel.login()) {
+                when (result) {
                     is SystemResult.Success ->
                         state.copy(
                             showLoading = false,
