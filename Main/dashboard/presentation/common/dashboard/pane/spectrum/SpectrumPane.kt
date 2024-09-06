@@ -1,4 +1,4 @@
-package dashboard.pane.home
+package dashboard.pane.spectrum
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
@@ -7,11 +7,11 @@ import core.ui.designsystem.component.STextTitle
 import post.pane.post.PostPane
 
 @Composable
-fun HomePane(modifier: Modifier = Modifier) {
+fun SpectrumPane(modifier: Modifier = Modifier) {
     Column(
         modifier = modifier,
     ) {
-        STextTitle("Home Pane")
+        STextTitle("Spectrum Pane")
         PostPane()
     }
 }
