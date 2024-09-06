@@ -19,7 +19,7 @@ import system.designsystem.resources.logo_of_singularity_indonesia_circle
 @Composable
 fun BottomNavigation() {
     var selectedItem by remember { mutableIntStateOf(0) }
-    val items = listOf("Share", "Memories", "Search", "Profile")
+    val items = listOf("Spectrum", "Memories", "Search", "Profile")
 
     NavigationBar {
         items.forEachIndexed { index, item ->
