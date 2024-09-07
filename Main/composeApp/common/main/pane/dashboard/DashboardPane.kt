@@ -5,7 +5,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import core.ui.designsystem.component.STextTitle
 import discover.pane.discover.DiscoverPane
 import main.pane.component.BottomNavigation
 import memories.pane.memories.MemoriesPane
@@ -17,8 +16,6 @@ fun DashboardPane() {
     val selectedTab = remember { mutableIntStateOf(0) }
 
     Column {
-        STextTitle("Dashboard Pane")
-
         when (selectedTab.value) {
             1 -> MemoriesPane(modifier = Modifier.weight(1f))
             2 -> DiscoverPane(modifier = Modifier.weight(1f))
