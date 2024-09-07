@@ -19,6 +19,7 @@ import common.StateSaver
 import common.getPlatform
 import common.isIOS
 import core.ui.SingularityApp
+import main.protocol.AttributeBasedAccessControl
 import main.protocol.AuthenticationProtocol
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
@@ -48,10 +49,12 @@ fun App() {
                     .imePadding(),
         ) {
             AuthenticationProtocol {
-                Feature(
-                    navController = navController,
-                    stateSaver = stateSaver,
-                )
+                AttributeBasedAccessControl {
+                    Feature(
+                        navController = navController,
+                        stateSaver = stateSaver,
+                    )
+                }
             }
         }
     }

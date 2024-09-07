@@ -7,5 +7,5 @@ import kotlinx.coroutines.flow.StateFlow
 interface AccessControl<E : SystemException> {
     val fallBack: StateFlow<E?>
 
-    fun invoke(request: () -> SystemResult<*>): SystemResult<*>
+    suspend fun <T> invoke(request: () -> SystemResult<T>): SystemResult<T>
 }

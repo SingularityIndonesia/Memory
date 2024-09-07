@@ -5,20 +5,50 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import authentication.pane.login.LoginPane
 import core.exception.AuthenticationException
 import core.operation.SystemResult
 import core.protocol.AccessControl
 import core.ui.SingularityScope
+import core.ui.designsystem.component.STextTitle
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlin.coroutines.resume
 
 class AuthenticationProtocol : AccessControl<AuthenticationException> {
     private val _fallBack = MutableStateFlow<AuthenticationException?>(null)
     override val fallBack = _fallBack
 
-    override fun invoke(request: () -> SystemResult<*>): SystemResult<*> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun <T> invoke(request: () -> SystemResult<T>): SystemResult<T> =
+        suspendCancellableCoroutine { continuation ->
+            val coroutine = CoroutineScope(Dispatchers.IO)
+            val result = request.invoke()
+
+            if (result is SystemResult.Error && result.e is AuthenticationException) {
+                // notify requires protocol interception
+                _fallBack.update { result.e as AuthenticationException }
+
+                coroutine.launch {
+                    _fallBack.collect { e ->
+                        if (e != null) return@collect
+
+                        // retry request by redo the current protocol
+                        val newResult = invoke(request)
+
+                        // continue the suspend function
+                        continuation.resume(newResult)
+
+                        // cancel job
+                        this.cancel()
+                    }
+                }
+            }
+        }
 }
 
 context(SingularityScope)
@@ -34,6 +64,9 @@ fun AuthenticationProtocol(
     // Fall Back Authentication
     val requireAuthentication by authentication.fallBack.collectAsState()
     if (requireAuthentication != null) {
-        LoginPane(modifier = modifier)
+        STextTitle(
+            modifier = modifier,
+            text = "Authentication Protocol Interception",
+        )
     }
 }
