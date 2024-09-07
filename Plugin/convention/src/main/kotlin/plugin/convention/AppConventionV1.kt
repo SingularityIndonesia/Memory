@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package plugin.convention
@@ -65,15 +65,30 @@ class AppConventionV1 : Plugin<Project> {
                 }
             }
             withBaseAppModuleExtension {
-                compileSdk = libs.findVersion("android-compileSdk").get().toString().toInt()
+                compileSdk =
+                    libs
+                        .findVersion("android-compileSdk")
+                        .get()
+                        .toString()
+                        .toInt()
 
                 sourceSets["main"].manifest.srcFile("android/AndroidManifest.xml")
                 sourceSets["main"].res.srcDirs("android/res")
                 sourceSets["main"].resources.srcDirs("common/res")
 
                 defaultConfig {
-                    minSdk = libs.findVersion("android-minSdk").get().toString().toInt()
-                    targetSdk = libs.findVersion("android-targetSdk").get().toString().toInt()
+                    minSdk =
+                        libs
+                            .findVersion("android-minSdk")
+                            .get()
+                            .toString()
+                            .toInt()
+                    targetSdk =
+                        libs
+                            .findVersion("android-targetSdk")
+                            .get()
+                            .toString()
+                            .toInt()
                 }
 
                 // signing config
@@ -85,7 +100,7 @@ class AppConventionV1 : Plugin<Project> {
                 // Other modules are prohibited.
                 defineBuildVariants(
                     mod = this,
-                    signingConfig = signingConfig
+                    signingConfig = signingConfig,
                 )
 
                 packaging {
@@ -107,18 +122,19 @@ class AppConventionV1 : Plugin<Project> {
 
     fun generateSigningConfig(
         project: Project,
-        mod: BaseAppModuleExtension
+        mod: BaseAppModuleExtension,
     ) = with(mod) {
-        val keystore = run {
-            Properties()
-                .apply {
-                    load(
-                        FileInputStream(
-                            project.file("${project.projectDir}/keystore.properties")
+        val keystore =
+            run {
+                Properties()
+                    .apply {
+                        load(
+                            FileInputStream(
+                                project.file("${project.projectDir}/keystore.properties"),
+                            ),
                         )
-                    )
-                }
-        }
+                    }
+            }
 
         signingConfigs.create("all") {
             storeFile(project.file(keystore.getProperty("store.file")))
@@ -130,7 +146,7 @@ class AppConventionV1 : Plugin<Project> {
 
     fun defineBuildVariants(
         mod: BaseAppModuleExtension,
-        signingConfig: ApkSigningConfig?
+        signingConfig: ApkSigningConfig?,
     ) = with(mod) {
         // put your environment variable in environment.properties file within this composeApp project dir
 

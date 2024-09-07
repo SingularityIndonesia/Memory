@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package core.ui
@@ -11,13 +11,10 @@ import core.layer.SystemLoggerScopeImpl
 
 @Immutable
 data class SingularityScope(
-    val unit: Unit = Unit
+    val unit: Unit = Unit,
 ) : SystemLoggerScope by SystemLoggerScopeImpl() {
-
     @Composable
-    fun SingularityScopeCompose(
-        content: @Composable SingularityScope.() -> Unit
-    ) {
+    fun SingularityScopeCompose(content: @Composable SingularityScope.() -> Unit) {
         content()
     }
 }

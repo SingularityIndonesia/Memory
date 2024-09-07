@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package core.ui.designsystem
@@ -12,14 +12,16 @@ import androidx.compose.runtime.staticCompositionLocalOf
  */
 @Deprecated(
     "Do not call this directly!",
-    replaceWith = ReplaceWith(
-        "DesignToken.current",
-        "core.ui.designsystem.DesignToken",
-    ),
+    replaceWith =
+        ReplaceWith(
+            "DesignToken.current",
+            "core.ui.designsystem.DesignToken",
+        ),
 )
 class SystemToken
 
-val DesignToken = staticCompositionLocalOf {
-    @Suppress("DEPRECATION")
-    SystemToken()
-}
+val DesignToken =
+    staticCompositionLocalOf {
+        @Suppress("DEPRECATION")
+        SystemToken()
+    }

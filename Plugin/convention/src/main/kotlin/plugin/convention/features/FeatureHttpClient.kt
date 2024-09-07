@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package plugin.convention.features
@@ -16,7 +16,6 @@ class FeatureHttpClient : Plugin<Project> {
 
     override fun apply(project: Project) {
         with(project) {
-
             val libs = versionCatalog
 
             withKotlinMultiplatformExtension {
@@ -26,7 +25,6 @@ class FeatureHttpClient : Plugin<Project> {
                 }
 
                 sourceSets.commonMain.dependencies {
-
                 }
 
                 sourceSets.iosMain.dependencies {
@@ -36,5 +34,4 @@ class FeatureHttpClient : Plugin<Project> {
             }
         }
     }
-
 }

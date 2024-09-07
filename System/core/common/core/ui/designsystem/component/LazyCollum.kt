@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package core.ui.designsystem.component
@@ -19,7 +19,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import core.ui.SingularityScope
 
-
 context(SingularityScope)
 @Composable
 fun SLazyColumn(
@@ -31,7 +30,7 @@ fun SLazyColumn(
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
     flingBehavior: FlingBehavior = ScrollableDefaults.flingBehavior(),
     userScrollEnabled: Boolean = true,
-    content: LazyListScope.() -> Unit
+    content: LazyListScope.() -> Unit,
 ) {
     LazyColumn(
         modifier = modifier,

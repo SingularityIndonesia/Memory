@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package core.ui.designsystem.component
@@ -84,13 +84,14 @@ context(SingularityScope)
 @Composable
 fun SSearchComponent(
     clue: String,
-    onSearch: (String) -> Unit
+    onSearch: (String) -> Unit,
 ) {
     val attr = SingularityTheme.attr
     STextField(
-        modifier = Modifier
-            .padding(horizontal = attr.`large-padding`)
-            .fillMaxWidth(),
+        modifier =
+            Modifier
+                .padding(horizontal = attr.`large-padding`)
+                .fillMaxWidth(),
         value = clue,
         onValueChange = onSearch,
     )

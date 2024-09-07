@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package core.ui.designsystem.component
@@ -28,37 +28,37 @@ fun STextTitle(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    /*fontSize: TextUnit = TextUnit.Unspecified,*/
-    /*fontStyle: FontStyle? = null,*/
-    /*fontWeight: FontWeight? = null,*/
-    /*fontFamily: FontFamily? = null,*/
-    /*letterSpacing: TextUnit = TextUnit.Unspecified,*/
-    /*textDecoration: TextDecoration? = null,*/
-    /*lineHeight: TextUnit = TextUnit.Unspecified,*/
-    /*style: TextStyle = LocalTextStyle.current,*/
+    // fontSize: TextUnit = TextUnit.Unspecified,
+    // fontStyle: FontStyle? = null,
+    // fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
+    // letterSpacing: TextUnit = TextUnit.Unspecified,
+    // textDecoration: TextDecoration? = null,
+    // lineHeight: TextUnit = TextUnit.Unspecified,
+    // style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.titleLarge,
-        modifier = Modifier
-            .padding(
-                vertical = 16.dp
-            )
-            .then(modifier),
+        modifier =
+            Modifier
+                .padding(
+                    vertical = 16.dp,
+                ).then(modifier),
         color = color,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout,
-        /*fontSize = fontSize,*/
-        /*fontStyle = fontStyle,*/
-        /*fontWeight = fontWeight,*/
-        /*fontFamily = fontFamily,*/
-        /*letterSpacing = letterSpacing,*/
-        /*textDecoration = textDecoration,*/
-        /*lineHeight = lineHeight,*/
+        // fontSize = fontSize,
+        // fontStyle = fontStyle,
+        // fontWeight = fontWeight,
+        // fontFamily = fontFamily,
+        // letterSpacing = letterSpacing,
+        // textDecoration = textDecoration,
+        // lineHeight = lineHeight,
     )
 }
 
@@ -73,39 +73,39 @@ fun STextSubTitle(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    /*fontSize: TextUnit = TextUnit.Unspecified,*/
-    /*fontStyle: FontStyle? = null,*/
-    /*fontWeight: FontWeight? = null,*/
-    /*fontFamily: FontFamily? = null,*/
-    /*letterSpacing: TextUnit = TextUnit.Unspecified,*/
-    /*textDecoration: TextDecoration? = null,*/
-    /*lineHeight: TextUnit = TextUnit.Unspecified,*/
-    /*style: TextStyle = LocalTextStyle.current,*/
+    // fontSize: TextUnit = TextUnit.Unspecified,
+    // fontStyle: FontStyle? = null,
+    // fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
+    // letterSpacing: TextUnit = TextUnit.Unspecified,
+    // textDecoration: TextDecoration? = null,
+    // lineHeight: TextUnit = TextUnit.Unspecified,
+    // style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = text,
         textAlign = textAlign,
         fontStyle = FontStyle.Italic,
         style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier
-            .padding(
-                vertical = 4.dp
-            )
-            .alpha(.9f)
-            .then(modifier),
+        modifier =
+            Modifier
+                .padding(
+                    vertical = 4.dp,
+                ).alpha(.9f)
+                .then(modifier),
         color = color,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout,
-        /*fontSize = fontSize,*/
-        /*fontStyle = fontStyle,*/
-        /*fontWeight = fontWeight,*/
-        /*fontFamily = fontFamily,*/
-        /*letterSpacing = letterSpacing,*/
-        /*textDecoration = textDecoration,*/
-        /*lineHeight = lineHeight,*/
+        // fontSize = fontSize,
+        // fontStyle = fontStyle,
+        // fontWeight = fontWeight,
+        // fontFamily = fontFamily,
+        // letterSpacing = letterSpacing,
+        // textDecoration = textDecoration,
+        // lineHeight = lineHeight,
     )
 }
 
@@ -120,37 +120,37 @@ fun STextHeadline1(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    /*fontSize: TextUnit = TextUnit.Unspecified,*/
-    /*fontStyle: FontStyle? = null,*/
-    /*fontWeight: FontWeight? = null,*/
-    /*fontFamily: FontFamily? = null,*/
-    /*letterSpacing: TextUnit = TextUnit.Unspecified,*/
-    /*textDecoration: TextDecoration? = null,*/
-    /*lineHeight: TextUnit = TextUnit.Unspecified,*/
-    /*style: TextStyle = LocalTextStyle.current,*/
+    // fontSize: TextUnit = TextUnit.Unspecified,
+    // fontStyle: FontStyle? = null,
+    // fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
+    // letterSpacing: TextUnit = TextUnit.Unspecified,
+    // textDecoration: TextDecoration? = null,
+    // lineHeight: TextUnit = TextUnit.Unspecified,
+    // style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.headlineLarge,
-        modifier = Modifier
-            .padding(
-                vertical = 20.dp
-            )
-            .then(modifier),
+        modifier =
+            Modifier
+                .padding(
+                    vertical = 20.dp,
+                ).then(modifier),
         color = color,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout,
-        /*fontSize = fontSize,*/
-        /*fontStyle = fontStyle,*/
-        /*fontWeight = fontWeight,*/
-        /*fontFamily = fontFamily,*/
-        /*letterSpacing = letterSpacing,*/
-        /*textDecoration = textDecoration,*/
-        /*lineHeight = lineHeight,*/
+        // fontSize = fontSize,
+        // fontStyle = fontStyle,
+        // fontWeight = fontWeight,
+        // fontFamily = fontFamily,
+        // letterSpacing = letterSpacing,
+        // textDecoration = textDecoration,
+        // lineHeight = lineHeight,
     )
 }
 
@@ -165,37 +165,37 @@ fun STextHeadline2(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    /*fontSize: TextUnit = TextUnit.Unspecified,*/
-    /*fontStyle: FontStyle? = null,*/
-    /*fontWeight: FontWeight? = null,*/
-    /*fontFamily: FontFamily? = null,*/
-    /*letterSpacing: TextUnit = TextUnit.Unspecified,*/
-    /*textDecoration: TextDecoration? = null,*/
-    /*lineHeight: TextUnit = TextUnit.Unspecified,*/
-    /*style: TextStyle = LocalTextStyle.current,*/
+    // fontSize: TextUnit = TextUnit.Unspecified,
+    // fontStyle: FontStyle? = null,
+    // fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
+    // letterSpacing: TextUnit = TextUnit.Unspecified,
+    // textDecoration: TextDecoration? = null,
+    // lineHeight: TextUnit = TextUnit.Unspecified,
+    // style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.headlineMedium,
-        modifier = Modifier
-            .padding(
-                vertical = 14.dp
-            )
-            .then(modifier),
+        modifier =
+            Modifier
+                .padding(
+                    vertical = 14.dp,
+                ).then(modifier),
         color = color,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout,
-        /*fontSize = fontSize,*/
-        /*fontStyle = fontStyle,*/
-        /*fontWeight = fontWeight,*/
-        /*fontFamily = fontFamily,*/
-        /*letterSpacing = letterSpacing,*/
-        /*textDecoration = textDecoration,*/
-        /*lineHeight = lineHeight,*/
+        // fontSize = fontSize,
+        // fontStyle = fontStyle,
+        // fontWeight = fontWeight,
+        // fontFamily = fontFamily,
+        // letterSpacing = letterSpacing,
+        // textDecoration = textDecoration,
+        // lineHeight = lineHeight,
     )
 }
 
@@ -210,37 +210,37 @@ fun STextHeadline3(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    /*fontSize: TextUnit = TextUnit.Unspecified,*/
-    /*fontStyle: FontStyle? = null,*/
-    /*fontWeight: FontWeight? = null,*/
-    /*fontFamily: FontFamily? = null,*/
-    /*letterSpacing: TextUnit = TextUnit.Unspecified,*/
-    /*textDecoration: TextDecoration? = null,*/
-    /*lineHeight: TextUnit = TextUnit.Unspecified,*/
-    /*style: TextStyle = LocalTextStyle.current,*/
+    // fontSize: TextUnit = TextUnit.Unspecified,
+    // fontStyle: FontStyle? = null,
+    // fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
+    // letterSpacing: TextUnit = TextUnit.Unspecified,
+    // textDecoration: TextDecoration? = null,
+    // lineHeight: TextUnit = TextUnit.Unspecified,
+    // style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.headlineSmall,
-        modifier = Modifier
-            .padding(
-                vertical = 12.dp
-            )
-            .then(modifier),
+        modifier =
+            Modifier
+                .padding(
+                    vertical = 12.dp,
+                ).then(modifier),
         color = color,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout,
-        /*fontSize = fontSize,*/
-        /*fontStyle = fontStyle,*/
-        /*fontWeight = fontWeight,*/
-        /*fontFamily = fontFamily,*/
-        /*letterSpacing = letterSpacing,*/
-        /*textDecoration = textDecoration,*/
-        /*lineHeight = lineHeight,*/
+        // fontSize = fontSize,
+        // fontStyle = fontStyle,
+        // fontWeight = fontWeight,
+        // fontFamily = fontFamily,
+        // letterSpacing = letterSpacing,
+        // textDecoration = textDecoration,
+        // lineHeight = lineHeight,
     )
 }
 
@@ -255,37 +255,37 @@ fun STextBody(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    /*fontSize: TextUnit = TextUnit.Unspecified,*/
-    /*fontStyle: FontStyle? = null,*/
-    /*fontWeight: FontWeight? = null,*/
-    /*fontFamily: FontFamily? = null,*/
-    /*letterSpacing: TextUnit = TextUnit.Unspecified,*/
-    /*textDecoration: TextDecoration? = null,*/
-    /*lineHeight: TextUnit = TextUnit.Unspecified,*/
-    /*style: TextStyle = LocalTextStyle.current,*/
+    // fontSize: TextUnit = TextUnit.Unspecified,
+    // fontStyle: FontStyle? = null,
+    // fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
+    // letterSpacing: TextUnit = TextUnit.Unspecified,
+    // textDecoration: TextDecoration? = null,
+    // lineHeight: TextUnit = TextUnit.Unspecified,
+    // style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = text,
         style = MaterialTheme.typography.bodyLarge,
         textAlign = textAlign,
-        modifier = Modifier
-            .padding(
-                vertical = 2.dp
-            )
-            .then(modifier),
+        modifier =
+            Modifier
+                .padding(
+                    vertical = 2.dp,
+                ).then(modifier),
         color = color,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout,
-        /*fontSize = fontSize,*/
-        /*fontStyle = fontStyle,*/
-        /*fontWeight = fontWeight,*/
-        /*fontFamily = fontFamily,*/
-        /*letterSpacing = letterSpacing,*/
-        /*textDecoration = textDecoration,*/
-        /*lineHeight = lineHeight,*/
+        // fontSize = fontSize,
+        // fontStyle = fontStyle,
+        // fontWeight = fontWeight,
+        // fontFamily = fontFamily,
+        // letterSpacing = letterSpacing,
+        // textDecoration = textDecoration,
+        // lineHeight = lineHeight,
     )
 }
 
@@ -300,33 +300,34 @@ fun STextLabel(
     maxLines: Int = Int.MAX_VALUE,
     minLines: Int = 1,
     onTextLayout: ((TextLayoutResult) -> Unit)? = null,
-    /*fontSize: TextUnit = TextUnit.Unspecified,*/
-    /*fontStyle: FontStyle? = null,*/
-    /*fontWeight: FontWeight? = null,*/
-    /*fontFamily: FontFamily? = null,*/
-    /*letterSpacing: TextUnit = TextUnit.Unspecified,*/
-    /*textDecoration: TextDecoration? = null,*/
-    /*lineHeight: TextUnit = TextUnit.Unspecified,*/
-    /*style: TextStyle = LocalTextStyle.current,*/
+    // fontSize: TextUnit = TextUnit.Unspecified,
+    // fontStyle: FontStyle? = null,
+    // fontWeight: FontWeight? = null,
+    // fontFamily: FontFamily? = null,
+    // letterSpacing: TextUnit = TextUnit.Unspecified,
+    // textDecoration: TextDecoration? = null,
+    // lineHeight: TextUnit = TextUnit.Unspecified,
+    // style: TextStyle = LocalTextStyle.current,
 ) {
     Text(
         text = text,
         textAlign = textAlign,
         style = MaterialTheme.typography.labelLarge,
-        modifier = Modifier
-            .then(modifier),
+        modifier =
+            Modifier
+                .then(modifier),
         color = color,
         overflow = overflow,
         softWrap = softWrap,
         maxLines = maxLines,
         minLines = minLines,
         onTextLayout = onTextLayout,
-        /*fontSize = fontSize,*/
-        /*fontStyle = fontStyle,*/
-        /*fontWeight = fontWeight,*/
-        /*fontFamily = fontFamily,*/
-        /*letterSpacing = letterSpacing,*/
-        /*textDecoration = textDecoration,*/
-        /*lineHeight = lineHeight,*/
+        // fontSize = fontSize,
+        // fontStyle = fontStyle,
+        // fontWeight = fontWeight,
+        // fontFamily = fontFamily,
+        // letterSpacing = letterSpacing,
+        // textDecoration = textDecoration,
+        // lineHeight = lineHeight,
     )
 }

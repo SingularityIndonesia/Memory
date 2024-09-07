@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package bottomsheetflow
@@ -31,16 +31,16 @@ import kotlinx.coroutines.launch
 import simpleactivity.SimpleActivity
 
 class BottomSheetFlowPreviewActivity : SimpleActivity() {
-
     @Composable
     override fun App() {
         var showSheet by remember { mutableStateOf(false) }
 
         SingularityApp {
             Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .imePadding()
+                modifier =
+                    Modifier
+                        .fillMaxSize()
+                        .imePadding(),
             ) {
                 SPrimaryButton(
                     onClick = { showSheet = true },
@@ -50,15 +50,16 @@ class BottomSheetFlowPreviewActivity : SimpleActivity() {
                 }
             }
 
-            if (showSheet)
+            if (showSheet) {
                 BottomSheetInput(
                     onCancel = {
                         showSheet = false
                     },
                     onFinish = {
                         showSheet = false
-                    }
+                    },
                 )
+            }
         }
     }
 }
@@ -68,13 +69,13 @@ context(SingularityScope)
 @Composable
 fun BottomSheetInput(
     onCancel: () -> Unit,
-    onFinish: () -> Unit
+    onFinish: () -> Unit,
 ) {
     val scope = rememberCoroutineScope()
 
     BottomSheetFlow(
         startDestination = "input1",
-        onCancel = onCancel
+        onCancel = onCancel,
     ) {
         route(
             route = "input1",
@@ -82,7 +83,7 @@ fun BottomSheetInput(
                 // you can show dialog here
                 // showDismissDialog = true
                 false
-            }
+            },
         ) { sheetState ->
             Sheet1(
                 onBack = {
@@ -102,7 +103,7 @@ fun BottomSheetInput(
                         sheetState.hide()
                         onCancel.invoke()
                     }
-                }
+                },
             )
         }
 
@@ -112,7 +113,7 @@ fun BottomSheetInput(
                 // you can show dialog here
                 // showDismissDialog = true
                 false
-            }
+            },
         ) { sheetState ->
             Sheet2(
                 onBack = {
@@ -132,7 +133,7 @@ fun BottomSheetInput(
                         sheetState.hide()
                         onCancel.invoke()
                     }
-                }
+                },
             )
         }
 
@@ -142,7 +143,7 @@ fun BottomSheetInput(
                 // you can show dialog here
                 // showDismissDialog = true
                 false
-            }
+            },
         ) { sheetState ->
             Sheet3(
                 onBack = {
@@ -162,7 +163,7 @@ fun BottomSheetInput(
                         sheetState.hide()
                         onCancel.invoke()
                     }
-                }
+                },
             )
         }
     }
@@ -173,12 +174,12 @@ context(SingularityScope)
 fun Sheet1(
     onBack: () -> Unit,
     onNext: () -> Unit,
-    onCancel: () -> Unit
+    onCancel: () -> Unit,
 ) {
     Column {
         STextTitle(
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = "Input 1"
+            text = "Input 1",
         )
         SExtraLargeSpacing()
         Row {
@@ -198,7 +199,7 @@ fun Sheet1(
             SMediumSpacing()
             SPrimaryButton(
                 modifier = Modifier.weight(1f),
-                onClick = onNext
+                onClick = onNext,
             ) {
                 Text(text = "Next")
             }
@@ -212,34 +213,34 @@ context(SingularityScope)
 fun Sheet2(
     onBack: () -> Unit,
     onNext: () -> Unit,
-    onCancel: () -> Unit
+    onCancel: () -> Unit,
 ) {
     Column {
         STextTitle(
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = "Input 2"
+            text = "Input 2",
         )
         SExtraLargeSpacing()
         Row(
-            modifier = Modifier.align(Alignment.End)
+            modifier = Modifier.align(Alignment.End),
         ) {
             STertiaryButton(
                 modifier = Modifier.weight(1f),
-                onClick = onCancel
+                onClick = onCancel,
             ) {
                 Text(text = "Cancel")
             }
             SMediumSpacing()
             SSecondaryButton(
                 modifier = Modifier.weight(1f),
-                onClick = onBack
+                onClick = onBack,
             ) {
                 Text(text = "Back")
             }
             SMediumSpacing()
             SPrimaryButton(
                 modifier = Modifier.weight(1f),
-                onClick = onNext
+                onClick = onNext,
             ) {
                 Text(text = "Next")
             }
@@ -253,34 +254,34 @@ context(SingularityScope)
 fun Sheet3(
     onBack: () -> Unit,
     onFinish: () -> Unit,
-    onCancel: () -> Unit
+    onCancel: () -> Unit,
 ) {
     Column {
         STextTitle(
             modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = "Input 1"
+            text = "Input 1",
         )
         SExtraLargeSpacing()
         Row(
-            modifier = Modifier.align(Alignment.End)
+            modifier = Modifier.align(Alignment.End),
         ) {
             STertiaryButton(
                 modifier = Modifier.weight(1f),
-                onClick = onCancel
+                onClick = onCancel,
             ) {
                 Text(text = "Cancel")
             }
             SMediumSpacing()
             SSecondaryButton(
                 modifier = Modifier.weight(1f),
-                onClick = onBack
+                onClick = onBack,
             ) {
                 Text(text = "Back")
             }
             SMediumSpacing()
             SPrimaryButton(
                 modifier = Modifier.weight(1f),
-                onClick = onFinish
+                onClick = onFinish,
             ) {
                 Text(text = "Finish")
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 
@@ -29,22 +29,22 @@ fun SPrimaryButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
-    /*shape: Shape = ButtonDefaults.shape,*/
-    /*colors: ButtonColors = ButtonDefaults.buttonColors(),*/
+    // shape: Shape = ButtonDefaults.shape,
+    // colors: ButtonColors = ButtonDefaults.buttonColors(),
     elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
-    /*border: BorderStroke? = null,*/
+    // border: BorderStroke? = null,
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     isLoading: Boolean = false,
     content: @Composable RowScope.() -> Unit,
 ) {
-
     Button(
         modifier = modifier,
         onClick = {
             log("Button $content clicked")
-            if (!isLoading)
+            if (!isLoading) {
                 onClick.invoke()
+            }
         },
         enabled = enabled,
         shape = ButtonDefaults.shape,
@@ -52,16 +52,18 @@ fun SPrimaryButton(
         elevation = elevation,
         border = null,
         contentPadding = contentPadding,
-        interactionSource = interactionSource
+        interactionSource = interactionSource,
     ) {
-        if (isLoading)
+        if (isLoading) {
             CircularProgressIndicator(
-                modifier = Modifier
-                    .size(24.dp),
+                modifier =
+                    Modifier
+                        .size(24.dp),
                 color = MaterialTheme.colorScheme.onPrimary,
             )
-        else
+        } else {
             content()
+        }
     }
 }
 
@@ -71,45 +73,48 @@ fun SSecondaryButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
-    /*shape: Shape = ButtonDefaults.shape,*/
+    // shape: Shape = ButtonDefaults.shape,
     /*colors: ButtonColors = ButtonDefaults.buttonColors().copy(
         containerColor = MaterialTheme.colorScheme.secondary,
         contentColor = MaterialTheme.colorScheme.onSecondary
     ),*/
     elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
-    /*border: BorderStroke? = null,*/
+    // border: BorderStroke? = null,
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     isLoading: Boolean = false,
     content: @Composable RowScope.() -> Unit,
 ) {
-
     Button(
         modifier = modifier,
         onClick = {
             log("Button $content clicked")
-            if (!isLoading)
+            if (!isLoading) {
                 onClick.invoke()
+            }
         },
         enabled = enabled,
         shape = ButtonDefaults.shape,
-        colors = ButtonDefaults.buttonColors().copy(
-            containerColor = MaterialTheme.colorScheme.secondary,
-            contentColor = MaterialTheme.colorScheme.onSecondary
-        ),
+        colors =
+            ButtonDefaults.buttonColors().copy(
+                containerColor = MaterialTheme.colorScheme.secondary,
+                contentColor = MaterialTheme.colorScheme.onSecondary,
+            ),
         elevation = elevation,
         border = null,
         contentPadding = contentPadding,
-        interactionSource = interactionSource
+        interactionSource = interactionSource,
     ) {
-        if (isLoading)
+        if (isLoading) {
             CircularProgressIndicator(
-                modifier = Modifier
-                    .size(24.dp),
+                modifier =
+                    Modifier
+                        .size(24.dp),
                 color = MaterialTheme.colorScheme.onPrimary,
             )
-        else
+        } else {
             content()
+        }
     }
 }
 
@@ -119,45 +124,48 @@ fun STertiaryButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
-    /*shape: Shape = ButtonDefaults.shape,*/
+    // shape: Shape = ButtonDefaults.shape,
     /*colors: ButtonColors = ButtonDefaults.buttonColors().copy(
         containerColor = MaterialTheme.colorScheme.tertiary,
         contentColor = MaterialTheme.colorScheme.onTertiary
     ),*/
     elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
-    /*border: BorderStroke? = null,*/
+    // border: BorderStroke? = null,
     contentPadding: PaddingValues = ButtonDefaults.ContentPadding,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     isLoading: Boolean = false,
     content: @Composable RowScope.() -> Unit,
 ) {
-
     Button(
         modifier = modifier,
         onClick = {
             log("Button $content clicked")
-            if (!isLoading)
+            if (!isLoading) {
                 onClick.invoke()
+            }
         },
         enabled = enabled,
         shape = ButtonDefaults.shape,
-        colors = ButtonDefaults.buttonColors().copy(
-            containerColor = MaterialTheme.colorScheme.tertiary,
-            contentColor = MaterialTheme.colorScheme.onTertiary
-        ),
+        colors =
+            ButtonDefaults.buttonColors().copy(
+                containerColor = MaterialTheme.colorScheme.tertiary,
+                contentColor = MaterialTheme.colorScheme.onTertiary,
+            ),
         elevation = elevation,
         border = null,
         contentPadding = contentPadding,
-        interactionSource = interactionSource
+        interactionSource = interactionSource,
     ) {
-        if (isLoading)
+        if (isLoading) {
             CircularProgressIndicator(
-                modifier = Modifier
-                    .size(24.dp),
+                modifier =
+                    Modifier
+                        .size(24.dp),
                 color = MaterialTheme.colorScheme.onPrimary,
             )
-        else
+        } else {
             content()
+        }
     }
 }
 
@@ -169,7 +177,7 @@ fun SIconButton(
     enabled: Boolean = true,
     colors: IconButtonColors = IconButtonDefaults.iconButtonColors(),
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     IconButton(
         onClick = {

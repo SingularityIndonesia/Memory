@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package core.ui.designsystem.component
@@ -24,12 +24,12 @@ fun SSmallCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    /*shape: Shape = CardDefaults.shape,*/
+    // shape: Shape = CardDefaults.shape,
     colors: CardColors = CardDefaults.cardColors(),
     elevation: CardElevation = CardDefaults.cardElevation(),
     border: BorderStroke? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Card(
         onClick = {
@@ -53,12 +53,12 @@ fun SMediumCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    /*shape: Shape = CardDefaults.shape,*/
+    // shape: Shape = CardDefaults.shape,
     colors: CardColors = CardDefaults.cardColors(),
     elevation: CardElevation = CardDefaults.cardElevation(),
     border: BorderStroke? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Card(
         onClick = {
@@ -82,12 +82,12 @@ fun SLargeCard(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    /*shape: Shape = CardDefaults.shape,*/
+    // shape: Shape = CardDefaults.shape,
     colors: CardColors = CardDefaults.cardColors(),
     elevation: CardElevation = CardDefaults.cardElevation(),
     border: BorderStroke? = null,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Card(
         onClick = {

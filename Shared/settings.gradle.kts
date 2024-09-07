@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
@@ -39,9 +39,7 @@ dependencyResolutionManagement {
                     ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
                     ?.onEach { dir ->
                         substitute(module("system:${dir.name}")).using(project(":${dir.name}"))
-                    }
-                    ?.toList()
-
+                    }?.toList()
             }
         }
     }
@@ -55,5 +53,4 @@ File(settingsDir, "./")
     ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
     ?.onEach { dir ->
         include(":${dir.name}")
-    }
-    ?.toList()
+    }?.toList()

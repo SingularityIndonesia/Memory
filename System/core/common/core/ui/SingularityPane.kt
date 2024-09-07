@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package core.ui
@@ -11,7 +11,8 @@ import androidx.compose.runtime.Composable
 context(SingularityScope)
 @Composable
 fun SingularityPane(
-    content: @Composable context(SingularityScope, BoxScope) () -> Unit
+    content: @Composable context(SingularityScope, BoxScope)
+    () -> Unit,
 ) {
     Box {
         content(this@SingularityScope, this)

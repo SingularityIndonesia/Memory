@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package core.ui.designsystem.component
@@ -19,27 +19,28 @@ context(SingularityScope)
 @Composable
 fun STopAppBar(
     title: String,
-    onBack: () -> Unit
+    onBack: () -> Unit,
 ) {
     Row(
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier =
+            Modifier
+                .fillMaxWidth(),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         IconButton(
             onClick = {
                 log("Navigate back from $title")
                 onBack()
-            }
+            },
         ) {
             Icon(
                 Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = null
+                contentDescription = null,
             )
         }
 
         STextTitle(
-            text = title
+            text = title,
         )
     }
 }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package plugin.convention.features
@@ -11,7 +11,6 @@ import plugin.convention.companion.withKotlinMultiplatformExtension
 import plugin.convention.companion.withPluginManager
 
 class FeatureSerialization : Plugin<Project> {
-
     override fun apply(project: Project) {
         with(project) {
             val libs = versionCatalog

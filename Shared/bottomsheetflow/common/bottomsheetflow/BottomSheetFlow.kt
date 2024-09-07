@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Singularity Indonesia (stefanus.ayudha@gmail.com)
+ * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 package bottomsheetflow
@@ -22,7 +22,6 @@ import androidx.navigation.compose.rememberNavController
  * @see BottomSheetFlow
  */
 interface BottomSheetFlowScope {
-
     /**
      * Adding route to the flow.
      * @param route is the route id
@@ -32,8 +31,8 @@ interface BottomSheetFlowScope {
     @OptIn(ExperimentalMaterial3Api::class)
     fun route(
         route: String,
-        onDismiss: ()-> Boolean = { true },
-        content: @Composable NavHostController.(SheetState) -> Unit
+        onDismiss: () -> Boolean = { true },
+        content: @Composable NavHostController.(SheetState) -> Unit,
     )
 }
 
@@ -59,40 +58,45 @@ fun BottomSheetFlow(
         exitTransition = { ExitTransition.None },
         popExitTransition = { ExitTransition.None },
         popEnterTransition = { EnterTransition.None },
-        startDestination = startDestination
+        startDestination = startDestination,
     ) {
-        val scope = object : BottomSheetFlowScope {
-            override fun route(
-                route: String,
-                onDismiss: () -> Boolean,
-                content: @Composable() (NavHostController.(SheetState) -> Unit)
-            ) {
-                composable(
-                    route
+        val scope =
+            object : BottomSheetFlowScope {
+                override fun route(
+                    route: String,
+                    onDismiss: () -> Boolean,
+                    content:
+                        @Composable()
+                        (NavHostController.(SheetState) -> Unit),
                 ) {
-                    val sheetState = rememberModalBottomSheetState(
-                        confirmValueChange = { state ->
-                            /** interrupt dismissal intention **/
-                            if (state == SheetValue.Hidden)
-                                onDismiss.invoke()
-                            else
-                                true
-                        }
-                    )
-
-                    ModalBottomSheet(
-                        onDismissRequest = {
-                            if (!navController.popBackStack()) {
-                                onCancel.invoke()
-                            }
-                        },
-                        sheetState = sheetState
+                    composable(
+                        route,
                     ) {
-                        content.invoke(navController, sheetState)
+                        val sheetState =
+                            rememberModalBottomSheetState(
+                                confirmValueChange = { state ->
+                                    /** interrupt dismissal intention **/
+                                    if (state == SheetValue.Hidden) {
+                                        onDismiss.invoke()
+                                    } else {
+                                        true
+                                    }
+                                },
+                            )
+
+                        ModalBottomSheet(
+                            onDismissRequest = {
+                                if (!navController.popBackStack()) {
+                                    onCancel.invoke()
+                                }
+                            },
+                            sheetState = sheetState,
+                        ) {
+                            content.invoke(navController, sheetState)
+                        }
                     }
                 }
             }
-        }
 
         configuration.invoke(scope)
     }
