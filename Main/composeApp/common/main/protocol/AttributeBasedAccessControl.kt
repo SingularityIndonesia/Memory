@@ -16,6 +16,9 @@ import core.ui.SingularityScope
 import core.ui.designsystem.component.STextTitle
 import kotlinx.coroutines.flow.MutableStateFlow
 
+/**
+ * See: [access control design layer](/Brain/image/access control design layer.jpg)
+ */
 class AttributeBasedAccessControl : AccessControl<AccessControlException> {
     private val _fallBack = MutableStateFlow<AccessControlException?>(null)
     override val fallBack = _fallBack
