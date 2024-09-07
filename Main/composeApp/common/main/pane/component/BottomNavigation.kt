@@ -1,7 +1,7 @@
 package main.pane.component
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Text
@@ -36,7 +36,7 @@ fun BottomNavigation(
         items.forEachIndexed { index, item ->
             NavigationBarItem(
                 icon = {
-                    Image(
+                    Icon(
                         modifier = Modifier.size(24.dp),
                         painter = painterResource(if (index == selectedTab) item.second else item.first.second),
                         contentDescription = item.first.first,
