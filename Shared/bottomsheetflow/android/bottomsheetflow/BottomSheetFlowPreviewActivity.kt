@@ -21,12 +21,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import core.ui.SingularityApp
 import core.ui.SingularityScope
-import core.ui.designsystem.component.SExtraLargeSpacing
-import core.ui.designsystem.component.SMediumSpacing
-import core.ui.designsystem.component.SPrimaryButton
-import core.ui.designsystem.component.SSecondaryButton
-import core.ui.designsystem.component.STertiaryButton
-import core.ui.designsystem.component.STextTitle
+import core.ui.designsystem.molecule.SExtraLargeSpacing
+import core.ui.designsystem.molecule.SMediumSpacing
+import core.ui.designsystem.molecule.SPrimaryButton
+import core.ui.designsystem.molecule.SSecondaryButton
+import core.ui.designsystem.molecule.STertiaryButton
+import core.ui.designsystem.molecule.STextTitle
 import kotlinx.coroutines.launch
 import simpleactivity.SimpleActivity
 

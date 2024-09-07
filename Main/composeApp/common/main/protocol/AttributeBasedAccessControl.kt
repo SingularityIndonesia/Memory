@@ -13,7 +13,7 @@ import core.exception.AccessControlException
 import core.operation.SystemResult
 import core.protocol.AccessControl
 import core.ui.SingularityScope
-import core.ui.designsystem.component.STextTitle
+import core.ui.designsystem.molecule.STextTitle
 import kotlinx.coroutines.flow.MutableStateFlow
 
 /**

@@ -3,7 +3,7 @@
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 
-package core.ui.designsystem.component
+package core.ui.designsystem.molecule
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues

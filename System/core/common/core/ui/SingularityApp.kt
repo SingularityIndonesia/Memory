@@ -7,8 +7,8 @@ package core.ui
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import core.ui.designsystem.SingularityTheme
-import core.ui.designsystem.component.SSurface
+import core.ui.designsystem.atom.SingularityTheme
+import core.ui.designsystem.molecule.SSurface
 
 @Composable
 fun SingularityApp(

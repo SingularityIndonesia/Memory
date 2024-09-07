@@ -1,4 +1,4 @@
-package core.ui.designsystem.component
+package core.ui.designsystem.molecule
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.ColumnScope
@@ -26,14 +26,14 @@ fun STabRow(
     indicator: @Composable (tabPositions: List<TabPosition>) -> Unit = @Composable { tabPositions ->
         if (selectedTabIndex < tabPositions.size) {
             TabRowDefaults.SecondaryIndicator(
-                Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex])
+                Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
             )
         }
     },
     divider: @Composable () -> Unit = @Composable {
         HorizontalDivider()
     },
-    tabs: @Composable () -> Unit
+    tabs: @Composable () -> Unit,
 ) {
     TabRow(
         selectedTabIndex = selectedTabIndex,
@@ -42,7 +42,7 @@ fun STabRow(
         contentColor = contentColor,
         indicator = indicator,
         divider = divider,
-        tabs = tabs
+        tabs = tabs,
     )
 
     LaunchedEffect(selectedTabIndex) {
@@ -60,7 +60,7 @@ fun STab(
     selectedContentColor: Color = LocalContentColor.current,
     unselectedContentColor: Color = selectedContentColor,
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Tab(
         selected = selected,

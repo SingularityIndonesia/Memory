@@ -2,7 +2,7 @@
  * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
-package core.ui.designsystem.component
+package core.ui.designsystem.molecule
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -20,8 +20,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
 import core.ui.SingularityScope
-import core.ui.designsystem.SingularityTheme
-import core.ui.designsystem.`large-padding`
+import core.ui.designsystem.atom.SingularityTheme
+import core.ui.designsystem.atom.`large-padding`
 
 context(SingularityScope)
 @Composable

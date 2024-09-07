@@ -1,4 +1,4 @@
-package core.ui.designsystem.component
+package core.ui.designsystem.molecule
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
@@ -22,17 +22,19 @@ fun SSmallIcon(
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
     alpha: Float = DefaultAlpha,
-    colorFilter: ColorFilter? = null
+    colorFilter: ColorFilter? = null,
 ) {
     Image(
         painter = painter,
         contentDescription = contentDescription,
-        modifier = Modifier.size(24.dp)
-            .then(modifier),
+        modifier =
+            Modifier
+                .size(24.dp)
+                .then(modifier),
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
-        colorFilter = colorFilter
+        colorFilter = colorFilter,
     )
 }
 
@@ -44,17 +46,19 @@ fun SMediumIcon(
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
     alpha: Float = DefaultAlpha,
-    colorFilter: ColorFilter? = null
+    colorFilter: ColorFilter? = null,
 ) {
     Image(
         painter = painter,
         contentDescription = contentDescription,
-        modifier = Modifier.size(36.dp)
-            .then(modifier),
+        modifier =
+            Modifier
+                .size(36.dp)
+                .then(modifier),
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
-        colorFilter = colorFilter
+        colorFilter = colorFilter,
     )
 }
 
@@ -66,17 +70,19 @@ fun SLargeIcon(
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
     alpha: Float = DefaultAlpha,
-    colorFilter: ColorFilter? = null
+    colorFilter: ColorFilter? = null,
 ) {
     Image(
         painter = painter,
         contentDescription = contentDescription,
-        modifier = Modifier.size(48.dp)
-            .then(modifier),
+        modifier =
+            Modifier
+                .size(48.dp)
+                .then(modifier),
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
-        colorFilter = colorFilter
+        colorFilter = colorFilter,
     )
 }
 
@@ -88,17 +94,19 @@ fun SExtraLargeIcon(
     alignment: Alignment = Alignment.Center,
     contentScale: ContentScale = ContentScale.Fit,
     alpha: Float = DefaultAlpha,
-    colorFilter: ColorFilter? = null
+    colorFilter: ColorFilter? = null,
 ) {
     Image(
         painter = painter,
         contentDescription = contentDescription,
-        modifier = Modifier.size(64.dp)
-            .then(modifier),
+        modifier =
+            Modifier
+                .size(64.dp)
+                .then(modifier),
         alignment = alignment,
         contentScale = contentScale,
         alpha = alpha,
-        colorFilter = colorFilter
+        colorFilter = colorFilter,
     )
 }
 
@@ -109,27 +117,29 @@ fun SSmallLogo(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     alignment: Alignment = Alignment.Center,
-    /*contentScale: ContentScale = ContentScale.Fit,*/
-    /*alpha: Float = DefaultAlpha,*/
-    /*colorFilter: ColorFilter? = null*/
-    onClick: () -> Unit = {}
+    // contentScale: ContentScale = ContentScale.Fit,
+    // alpha: Float = DefaultAlpha,
+    // colorFilter: ColorFilter? = null
+    onClick: () -> Unit = {},
 ) {
     Card(
         onClick = {
             log("Logo clicked $contentDescription")
             onClick()
         },
-        shape = CircleShape
+        shape = CircleShape,
     ) {
         Image(
             painter = painter,
             contentDescription = contentDescription,
-            modifier = Modifier.size(90.dp)
-                .then(modifier),
+            modifier =
+                Modifier
+                    .size(90.dp)
+                    .then(modifier),
             alignment = alignment,
             contentScale = ContentScale.Fit,
             alpha = DefaultAlpha,
-            colorFilter = null
+            colorFilter = null,
         )
     }
 }
@@ -141,27 +151,29 @@ fun SMediumLogo(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     alignment: Alignment = Alignment.Center,
-    /*contentScale: ContentScale = ContentScale.Fit,*/
-    /*alpha: Float = DefaultAlpha,*/
-    /*colorFilter: ColorFilter? = null*/
-    onClick: () -> Unit = {}
+    // contentScale: ContentScale = ContentScale.Fit,
+    // alpha: Float = DefaultAlpha,
+    // colorFilter: ColorFilter? = null
+    onClick: () -> Unit = {},
 ) {
     Card(
         onClick = {
             log("Logo clicked $contentDescription")
             onClick()
         },
-        shape = CircleShape
+        shape = CircleShape,
     ) {
         Image(
             painter = painter,
             contentDescription = contentDescription,
-            modifier = Modifier.size(120.dp)
-                .then(modifier),
+            modifier =
+                Modifier
+                    .size(120.dp)
+                    .then(modifier),
             alignment = alignment,
             contentScale = ContentScale.Fit,
             alpha = DefaultAlpha,
-            colorFilter = null
+            colorFilter = null,
         )
     }
 }
@@ -173,27 +185,29 @@ fun SLargeLogo(
     contentDescription: String?,
     modifier: Modifier = Modifier,
     alignment: Alignment = Alignment.Center,
-    /*contentScale: ContentScale = ContentScale.Fit,*/
-    /*alpha: Float = DefaultAlpha,*/
-    /*colorFilter: ColorFilter? = null*/
-    onClick: () -> Unit = {}
+    // contentScale: ContentScale = ContentScale.Fit,
+    // alpha: Float = DefaultAlpha,
+    // colorFilter: ColorFilter? = null
+    onClick: () -> Unit = {},
 ) {
     Card(
         onClick = {
             log("Logo clicked $contentDescription")
             onClick()
         },
-        shape = CircleShape
+        shape = CircleShape,
     ) {
         Image(
             painter = painter,
             contentDescription = contentDescription,
-            modifier = Modifier.size(150.dp)
-                .then(modifier),
+            modifier =
+                Modifier
+                    .size(150.dp)
+                    .then(modifier),
             alignment = alignment,
             contentScale = ContentScale.Fit,
             alpha = DefaultAlpha,
-            colorFilter = null
+            colorFilter = null,
         )
     }
 }

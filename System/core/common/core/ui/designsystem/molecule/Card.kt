@@ -2,7 +2,7 @@
  * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
-package core.ui.designsystem.component
+package core.ui.designsystem.molecule
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
