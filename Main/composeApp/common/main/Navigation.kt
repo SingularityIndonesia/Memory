@@ -14,7 +14,7 @@ import main.pane.dashboard.DashboardPane
 
 context(SingularityScope)
 @Composable
-fun MainNavigation(
+fun Feature(
     navController: NavHostController,
     stateSaver: StateSaver,
 ) {

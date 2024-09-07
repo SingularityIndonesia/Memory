@@ -15,11 +15,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
-import authentication.pane.login.LoginPane
 import common.StateSaver
 import common.getPlatform
 import common.isIOS
 import core.ui.SingularityApp
+import main.protocol.AuthenticationProtocol
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -27,7 +27,6 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun App() {
     val navController = rememberNavController()
     val stateSaver = remember { StateSaver() }
-    val context = remember { MainContext() }
 
     val topPadding =
         WindowInsets.safeDrawing
@@ -48,13 +47,12 @@ fun App() {
                     .padding(top = topPadding)
                     .imePadding(),
         ) {
-            MainNavigation(
-                navController = navController,
-                stateSaver = stateSaver,
-            )
-
-            // protocol layer
-            LoginPane()
+            AuthenticationProtocol {
+                Feature(
+                    navController = navController,
+                    stateSaver = stateSaver,
+                )
+            }
         }
     }
 }

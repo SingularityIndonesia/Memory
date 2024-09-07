@@ -23,19 +23,22 @@ data class LoginPaneState(
 
 context(SingularityScope)
 @Composable
-fun LoginPane(viewModel: LoginViewModel = viewModel()) {
+fun LoginPane(
+    modifier: Modifier = Modifier,
+    viewModel: LoginViewModel = viewModel(),
+) {
     val attr = DesignToken.current
     val state by viewModel.container.stateFlow.collectAsState()
 
-    ErrorSnackBar(
-        state.showLoginErrorSnackBar,
-        state.loginErrorSnackBarMessage,
-        onClose = { viewModel.dismissLoginErrorSnackBar() },
-    )
-
     Box(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().then(modifier),
     ) {
+        ErrorSnackBar(
+            state.showLoginErrorSnackBar,
+            state.loginErrorSnackBarMessage,
+            onClose = { viewModel.dismissLoginErrorSnackBar() },
+        )
+
         if (state.showBottomSheet) {
             LoginBottomSheet(
                 showLoading = state.showLoading,
