@@ -10,7 +10,7 @@ import com.pluto.plugins.logger.PlutoLoggerPlugin
 import com.pluto.plugins.network.PlutoNetworkPlugin
 import com.pluto.plugins.preferences.PlutoSharePreferencesPlugin
 import com.pluto.plugins.rooms.db.PlutoRoomsDatabasePlugin
-import com.singularity.memory.BuildConfig
+import com.singularity.memories.BuildConfig
 
 class MainApplication : Application() {
     override fun onCreate() {
