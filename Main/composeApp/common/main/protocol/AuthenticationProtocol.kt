@@ -13,6 +13,7 @@ import core.ui.designsystem.component.STextTitle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -26,7 +27,7 @@ class AuthenticationProtocol : AccessControl<AuthenticationException> {
 
     override suspend fun <T> invoke(request: () -> SystemResult<T>): SystemResult<T> =
         suspendCancellableCoroutine { continuation ->
-            val coroutine = CoroutineScope(Dispatchers.IO)
+            val coroutine = CoroutineScope(Dispatchers.IO + SupervisorJob())
             val result = request.invoke()
 
             if (result is SystemResult.Error && result.e is AuthenticationException) {
@@ -44,7 +45,7 @@ class AuthenticationProtocol : AccessControl<AuthenticationException> {
                         continuation.resume(newResult)
 
                         // cancel job
-                        this.cancel()
+                        coroutine.cancel()
                     }
                 }
             }
