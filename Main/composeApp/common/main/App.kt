@@ -19,6 +19,7 @@ import common.StateSaver
 import common.getPlatform
 import common.isIOS
 import core.ui.SingularityApp
+import core.ui.SingularityScope
 import main.protocol.AttributeBasedAccessControl
 import main.protocol.AuthenticationProtocol
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -26,6 +27,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 @Composable
 @Preview
 fun App() {
+    val singularityScope = remember { SingularityScope() }
     val navController = rememberNavController()
     val stateSaver = remember { StateSaver() }
 
@@ -41,7 +43,7 @@ fun App() {
                 }
             }
 
-    SingularityApp {
+    SingularityApp(singularityScope = singularityScope) {
         Box(
             modifier =
                 Modifier

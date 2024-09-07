@@ -6,19 +6,15 @@ package core.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import core.ui.designsystem.SingularityTheme
 import core.ui.designsystem.component.SSurface
 
 @Composable
 fun SingularityApp(
-    content: @Composable SingularityScope.() -> Unit
+    singularityScope: SingularityScope = SingularityScope(),
+    content: @Composable SingularityScope.() -> Unit,
 ) {
-    val singularityScope = remember {
-        SingularityScope()
-    }
-
     singularityScope.SingularityScopeCompose {
         SingularityTheme {
             SSurface(
