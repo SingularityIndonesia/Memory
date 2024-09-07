@@ -34,6 +34,6 @@ fun AuthenticationProtocol(
     // Fall Back Authentication
     val requireAuthentication by authentication.fallBack.collectAsState()
     if (requireAuthentication != null) {
-        LoginPane()
+        LoginPane(modifier = modifier)
     }
 }
