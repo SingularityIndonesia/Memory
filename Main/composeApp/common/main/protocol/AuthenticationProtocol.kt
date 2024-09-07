@@ -21,6 +21,9 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 
+/**
+ * See: [access control design layer](/Brain/image/access control design layer.jpg)
+ */
 class AuthenticationProtocol : AccessControl<AuthenticationException> {
     private val _fallBack = MutableStateFlow<AuthenticationException?>(null)
     override val fallBack = _fallBack
