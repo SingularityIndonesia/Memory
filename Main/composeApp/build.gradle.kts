@@ -38,6 +38,7 @@ kotlin {
             Shared("common")
             Shared("webclient")
             Shared("bottomsheetflow")
+            Shared("simpleactivity")
 
             presentation("authentication")
             presentation("discover")
