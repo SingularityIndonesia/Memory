@@ -9,7 +9,7 @@ import core.exception.AuthenticationException
 import core.operation.SystemResult
 import core.protocol.AccessControl
 import core.ui.SingularityScope
-import core.ui.designsystem.molecule.STextTitle
+import core.ui.designsystem.atom.STextTitle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO

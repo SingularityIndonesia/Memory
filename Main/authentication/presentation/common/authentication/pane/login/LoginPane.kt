@@ -11,7 +11,7 @@ import authentication.component.ErrorSnackBar
 import authentication.modal.LoginBottomSheet
 import core.ui.SingularityApp
 import core.ui.SingularityScope
-import core.ui.designsystem.atom.DesignToken
+import core.ui.designsystem.boson.DesignToken
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 data class LoginPaneState(

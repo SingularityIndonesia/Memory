@@ -2,7 +2,7 @@
  * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
-package core.ui.designsystem.molecule
+package core.ui.designsystem.atom
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.material3.FloatingActionButton

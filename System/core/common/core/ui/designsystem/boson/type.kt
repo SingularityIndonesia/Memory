@@ -2,7 +2,7 @@
  * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
-package core.ui.designsystem.atom
+package core.ui.designsystem.boson
 
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily

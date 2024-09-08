@@ -1,4 +1,4 @@
-package core.ui.designsystem.atom
+package core.ui.designsystem.boson
 
 import androidx.compose.ui.unit.dp
 

@@ -1,4 +1,4 @@
-package core.ui.designsystem.molecule
+package core.ui.designsystem.atom
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues

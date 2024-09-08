@@ -1,4 +1,4 @@
-package core.ui.designsystem.molecule
+package core.ui.designsystem.atom
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.PaddingValues
@@ -17,14 +17,14 @@ import core.ui.SingularityScope
 
 context(SingularityScope)
 @Composable
-fun STertiaryButton(
+fun SSecondaryButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
     // shape: Shape = ButtonDefaults.shape,
     /*colors: ButtonColors = ButtonDefaults.buttonColors().copy(
-        containerColor = MaterialTheme.colorScheme.tertiary,
-        contentColor = MaterialTheme.colorScheme.onTertiary
+        containerColor = MaterialTheme.colorScheme.secondary,
+        contentColor = MaterialTheme.colorScheme.onSecondary
     ),*/
     elevation: ButtonElevation? = ButtonDefaults.buttonElevation(),
     // border: BorderStroke? = null,
@@ -45,8 +45,8 @@ fun STertiaryButton(
         shape = ButtonDefaults.shape,
         colors =
             ButtonDefaults.buttonColors().copy(
-                containerColor = MaterialTheme.colorScheme.tertiary,
-                contentColor = MaterialTheme.colorScheme.onTertiary,
+                containerColor = MaterialTheme.colorScheme.secondary,
+                contentColor = MaterialTheme.colorScheme.onSecondary,
             ),
         elevation = elevation,
         border = null,
@@ -70,7 +70,7 @@ fun STertiaryButton(
 // -------------------------------------------------------------------------------------------------
 context(SingularityScope)
 @Composable
-fun STertiaryButton(
+fun SSecondaryButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     enabled: Boolean = true,
@@ -79,7 +79,7 @@ fun STertiaryButton(
     isLoading: Boolean = false,
     labelText: String,
 ) {
-    STertiaryButton(
+    SSecondaryButton(
         modifier = modifier,
         onClick = onClick,
         enabled = enabled,

@@ -12,9 +12,9 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import core.ui.SingularityApp
 import core.ui.SingularityScope
-import core.ui.designsystem.molecule.Expand
-import core.ui.designsystem.molecule.SPrimaryButton
-import core.ui.designsystem.molecule.STextLabel
+import core.ui.designsystem.atom.Expand
+import core.ui.designsystem.atom.SPrimaryButton
+import core.ui.designsystem.atom.STextLabel
 import development.example.presentation.organism.ExampleOrganism
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect

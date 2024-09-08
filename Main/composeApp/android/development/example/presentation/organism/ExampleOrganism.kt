@@ -3,24 +3,36 @@ package development.example.presentation.organism
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import development.example.presentation.molecule.ExampleMolecule
+import core.ui.SingularityApp
+import core.ui.SingularityScope
+import development.example.presentation.atom.ExampleAtom
 import development.example.presentation.molecule.ExampleMoleculeConcept
 
+context(SingularityScope)
 @Composable
 fun ExampleOrganism() {
+    val clickCounter = remember { mutableIntStateOf(0) }
     Column(
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        ExampleMolecule()
-        ExampleMoleculeConcept()
+        ExampleAtom("Click counter ${clickCounter.intValue}")
+        ExampleMoleculeConcept(
+            onClick = {
+                clickCounter.intValue += 1 // lambda capture state, just for example
+            }
+        )
     }
 }
-
 
 @Preview
 @Composable
 private fun Default() {
-    ExampleOrganism()
+    SingularityApp {
+        ExampleOrganism()
+    }
 }

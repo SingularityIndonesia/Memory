@@ -1,4 +1,4 @@
-package core.ui.designsystem.molecule
+package core.ui.designsystem.atom
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Snackbar

@@ -2,7 +2,7 @@
  * Copyright (c) 2024 Singularity Indonesia
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
-package core.ui.designsystem.molecule
+package core.ui.designsystem.atom
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
@@ -10,12 +10,12 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import core.ui.designsystem.atom.SingularityTheme
-import core.ui.designsystem.atom.`extra-large-spacing`
-import core.ui.designsystem.atom.`large-spacing`
-import core.ui.designsystem.atom.`medium-spacing`
-import core.ui.designsystem.atom.`paragraph-spacing`
-import core.ui.designsystem.atom.`small-spacing`
+import core.ui.designsystem.boson.SingularityTheme
+import core.ui.designsystem.boson.`extra-large-spacing`
+import core.ui.designsystem.boson.`large-spacing`
+import core.ui.designsystem.boson.`medium-spacing`
+import core.ui.designsystem.boson.`paragraph-spacing`
+import core.ui.designsystem.boson.`small-spacing`
 
 @Composable
 fun SSmallSpacing() {
