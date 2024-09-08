@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import core.ui.SingularityApp
@@ -15,9 +16,12 @@ import development.example.presentation.molecule.ExampleMoleculeConcept
 
 context(SingularityScope)
 @Composable
-fun ExampleOrganism() {
+fun ExampleOrganism(
+    modifier: Modifier = Modifier
+) {
     val clickCounter = remember { mutableIntStateOf(0) }
     Column(
+        modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         ExampleAtom("Click counter ${clickCounter.intValue}")

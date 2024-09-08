@@ -5,9 +5,14 @@ import androidx.lifecycle.viewModelScope
 import core.operation.getOrElse
 import core.operation.map
 import development.example.model.ExampleModel
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.ensureActive
+import orbitmviextension.postSideEffect
+import orbitmviextension.reduce
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.container
+import viewmodel.launch
 
 class ExamplePaneViewModel(
     private val exampleModel: ExampleModel = ExampleModel(),
@@ -16,31 +21,33 @@ class ExamplePaneViewModel(
     override val container: Container<ExamplePaneState, ExamplePaneSideEffect> =
         viewModelScope.container(ExamplePaneState())
 
-    init {
-        loadData()
-    }
+    private var loadDataJob: Job? = null
 
     fun loadData() =
         intent {
-            reduce { state.copy(showLoading = true) }
+            loadDataJob?.cancel()
 
-            val result = exampleModel.getEntities()
-            val entities =
-                result
-                    .map { entities ->
-                        entities.map { it.label }
-                    }.getOrElse { e ->
-                        suspend {
-                            postSideEffect(ShowToast(e.localizedMessage ?: "Unknown Error"))
-                        }
-                        return@intent
-                    }
+            loadDataJob =
+                launch {
+                    reduce(true) { state.copy(showLoading = true, labelItems = emptyList()) }
+                    val result = exampleModel.getEntities()
 
-            reduce { state.copy(showLoading = false, labelItems = entities) }
-        }
+                    ensureActive()
+                    val entities =
+                        result
+                            .map { entities ->
+                                entities.map { it.label }
+                            }.getOrElse { e ->
+                                postSideEffect(
+                                    ensureActive = true,
+                                    sideEffect = ShowToast(e.localizedMessage ?: "Unknown Error"),
+                                )
+                                reduce(true) { state.copy(showLoading = false) }
+                                return@launch cancel()
+                            }
 
-    fun showToast() =
-        intent {
-            postSideEffect(ShowToast("Singularity Indonesia"))
+                    reduce(true) { state.copy(showLoading = false, labelItems = entities) }
+                    postSideEffect(ShowToast("Load data success"))
+                }
         }
 }

@@ -9,7 +9,7 @@ import kotlinx.coroutines.withContext
 class ExampleModel {
     suspend fun getEntities(): SystemResult<List<ExampleEntity>> =
         withContext(Dispatchers.IO) {
-            delay(3000)
+            delay(5000)
             val entities = (0..10).map { ExampleEntity(label = "Example Entity $it") }
             SystemResult.Success(entities)
         }
