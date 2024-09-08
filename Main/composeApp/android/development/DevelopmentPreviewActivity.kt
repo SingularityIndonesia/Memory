@@ -1,6 +1,5 @@
-package development.example
+package development
 
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import core.ui.SingularityApp
 import development.example.presentation.pane.ExamplePane
