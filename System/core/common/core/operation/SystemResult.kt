@@ -32,14 +32,14 @@ inline fun <T, R> SystemResult<T>.flatMap(block: (T) -> SystemResult<R>): System
         is Error -> this
     }
 
-inline fun <T> SystemResult<T>.onSuccess(crossinline block: (T) -> Unit): SystemResult<T> {
+inline fun <T> SystemResult<T>.onSuccess(block: (T) -> Unit): SystemResult<T> {
     if (this is Success) {
         block.invoke(this.data)
     }
     return this
 }
 
-inline fun <T> SystemResult<T>.onError(crossinline block: (SystemException) -> Unit): SystemResult<T> {
+inline fun <T> SystemResult<T>.onError(block: (SystemException) -> Unit): SystemResult<T> {
     if (this is Error) {
         block.invoke(this.e)
     }
