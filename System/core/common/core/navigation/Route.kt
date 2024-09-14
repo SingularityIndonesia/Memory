@@ -9,6 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
@@ -32,12 +33,36 @@ interface RouteScope<R : NavigationResult> {
     fun returnResult(result: R)
 }
 
-context(RouteScope<R>)
-inline fun <reified T : UrlParam, R : NavigationResult> navigate(
-    route: String,
-    param: T,
+/**
+ * @param canGoBack if true top navigator will be shown and back action will be intercepted
+ */
+data class Route<P : UrlParam, R : NavigationResult>(
+    val route: String,
+    val title: String,
+    val canGoBack: Boolean = true,
 ) {
-    val routeWithParam = "$route?param=${Json.encodeToString(param)}"
+    context(SingularityScope, NavGraphBuilder)
+
+    inline operator fun <reified P : UrlParam, R : NavigationResult> invoke(
+        controller: NavHostController,
+        crossinline content: @Composable RouteScope<R>.(P) -> Unit,
+    ) {
+        route<P, R>(
+            route = route,
+            title = title,
+            canGoBack = canGoBack,
+            controller = controller,
+            content = content,
+        )
+    }
+}
+
+context(RouteScope<R>)
+inline fun <reified P : UrlParam, R : NavigationResult> navigate(
+    route: Route<P, R>,
+    param: P,
+) {
+    val routeWithParam = "${route.route}?param=${Json.encodeToString(param)}"
 
     @OptIn(IllegalAccess::class)
     controller.navigate(routeWithParam)
@@ -49,7 +74,7 @@ inline fun <reified P : UrlParam, R : NavigationResult> route(
     title: String,
     controller: NavController,
     canGoBack: Boolean = true,
-    crossinline panel: @Composable RouteScope<R>.(P) -> Unit,
+    crossinline content: @Composable RouteScope<R>.(P) -> Unit,
 ) {
     composable(
         route = "$route?param={param}",
@@ -89,12 +114,12 @@ inline fun <reified P : UrlParam, R : NavigationResult> route(
                 RouteContent(
                     title = title,
                     param = param,
-                    panel = panel,
+                    panel = content,
                 )
             } else {
                 RouteContentNoHeader(
                     param = param,
-                    panel = panel,
+                    panel = content,
                 )
             }
         }
