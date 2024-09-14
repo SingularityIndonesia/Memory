@@ -6,52 +6,26 @@
       {
         "id": "da25b4aed31e2d9d",
         "type": "tabs",
-        "dimension": 57.57299270072993,
+        "dimension": 78.1021897810219,
         "children": [
-          {
-            "id": "7a7f53742408d7e4",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "pane.md",
-                "mode": "source",
-                "source": false
-              }
-            },
-            "group": "463279eb2dd1b307"
-          },
-          {
-            "id": "c170e74a1dcab636",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "route.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
           {
             "id": "58667d60be34309b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "separation of control principle.md",
+                "file": "route component.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       },
       {
         "id": "43cce95dccf64edf",
         "type": "tabs",
-        "dimension": 42.42700729927007,
+        "dimension": 21.897810218978105,
         "children": [
           {
             "id": "44a9589184549b56",
@@ -59,7 +33,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "pane.md",
+                "file": "route component.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -86,8 +60,7 @@
                   "close": false
                 }
               }
-            },
-            "group": "463279eb2dd1b307"
+            }
           }
         ]
       }
@@ -155,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "separation of control principle.md",
+                "file": "route component.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -172,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "separation of control principle.md",
+                "file": "route component.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -195,7 +168,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "separation of control principle.md"
+                "file": "route component.md"
               }
             }
           }
@@ -218,11 +191,11 @@
   },
   "active": "58667d60be34309b",
   "lastOpenFiles": [
-    "route component.md",
     "route.md",
+    "separation of control principle.md",
+    "route component.md",
     "pane.md",
     "navigation.md",
-    "separation of control principle.md",
     "pane rule.md"
   ]
 }
