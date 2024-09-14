@@ -6,6 +6,14 @@
 
 package core.ui.designsystem.boson
 
+val SystemToken.`small-icon-size` get() = SIZE_24
+val SystemToken.`medium-icon-size` get() = SIZE_36
+val SystemToken.`large-icon-size` get() = SIZE_48
+val SystemToken.`extra-large-icon-size` get() = SIZE_24
+val SystemToken.`small-logo-size` get() = SIZE_90
+val SystemToken.`medium-logo_size` get() = SIZE_120
+val SystemToken.`large-logo-size` get() = SIZE_150
+val SystemToken.`no-spacing` get() = SIZE_0
 val SystemToken.`small-spacing` get() = SIZE_4
 val SystemToken.`medium-spacing` get() = SIZE_8
 val SystemToken.`large-spacing` get() = SIZE_16

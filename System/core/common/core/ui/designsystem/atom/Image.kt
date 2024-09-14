@@ -11,8 +11,15 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.unit.dp
 import core.ui.SingularityScope
+import core.ui.designsystem.boson.DesignToken
+import core.ui.designsystem.boson.`extra-large-icon-size`
+import core.ui.designsystem.boson.`large-icon-size`
+import core.ui.designsystem.boson.`large-logo-size`
+import core.ui.designsystem.boson.`medium-icon-size`
+import core.ui.designsystem.boson.`medium-logo_size`
+import core.ui.designsystem.boson.`small-icon-size`
+import core.ui.designsystem.boson.`small-logo-size`
 
 @Composable
 fun SSmallIcon(
@@ -24,12 +31,13 @@ fun SSmallIcon(
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
+    val attr = DesignToken.current
     Image(
         painter = painter,
         contentDescription = contentDescription,
         modifier =
             Modifier
-                .size(24.dp)
+                .size(attr.`small-icon-size`)
                 .then(modifier),
         alignment = alignment,
         contentScale = contentScale,
@@ -48,12 +56,13 @@ fun SMediumIcon(
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
+    val attr = DesignToken.current
     Image(
         painter = painter,
         contentDescription = contentDescription,
         modifier =
             Modifier
-                .size(36.dp)
+                .size(attr.`medium-icon-size`)
                 .then(modifier),
         alignment = alignment,
         contentScale = contentScale,
@@ -72,12 +81,13 @@ fun SLargeIcon(
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
+    val attr = DesignToken.current
     Image(
         painter = painter,
         contentDescription = contentDescription,
         modifier =
             Modifier
-                .size(48.dp)
+                .size(attr.`large-icon-size`)
                 .then(modifier),
         alignment = alignment,
         contentScale = contentScale,
@@ -96,12 +106,13 @@ fun SExtraLargeIcon(
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
+    val attr = DesignToken.current
     Image(
         painter = painter,
         contentDescription = contentDescription,
         modifier =
             Modifier
-                .size(64.dp)
+                .size(attr.`extra-large-icon-size`)
                 .then(modifier),
         alignment = alignment,
         contentScale = contentScale,
@@ -122,6 +133,7 @@ fun SSmallLogo(
     // colorFilter: ColorFilter? = null
     onClick: () -> Unit = {},
 ) {
+    val attr = DesignToken.current
     Card(
         onClick = {
             log("Logo clicked $contentDescription")
@@ -134,7 +146,7 @@ fun SSmallLogo(
             contentDescription = contentDescription,
             modifier =
                 Modifier
-                    .size(90.dp)
+                    .size(attr.`small-logo-size`)
                     .then(modifier),
             alignment = alignment,
             contentScale = ContentScale.Fit,
@@ -156,6 +168,7 @@ fun SMediumLogo(
     // colorFilter: ColorFilter? = null
     onClick: () -> Unit = {},
 ) {
+    val attr = DesignToken.current
     Card(
         onClick = {
             log("Logo clicked $contentDescription")
@@ -168,7 +181,7 @@ fun SMediumLogo(
             contentDescription = contentDescription,
             modifier =
                 Modifier
-                    .size(120.dp)
+                    .size(attr.`medium-logo_size`)
                     .then(modifier),
             alignment = alignment,
             contentScale = ContentScale.Fit,
@@ -190,6 +203,7 @@ fun SLargeLogo(
     // colorFilter: ColorFilter? = null
     onClick: () -> Unit = {},
 ) {
+    val attr = DesignToken.current
     Card(
         onClick = {
             log("Logo clicked $contentDescription")
@@ -202,7 +216,7 @@ fun SLargeLogo(
             contentDescription = contentDescription,
             modifier =
                 Modifier
-                    .size(150.dp)
+                    .size(attr.`large-logo-size`)
                     .then(modifier),
             alignment = alignment,
             contentScale = ContentScale.Fit,

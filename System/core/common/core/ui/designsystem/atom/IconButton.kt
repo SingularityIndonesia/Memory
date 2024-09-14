@@ -1,7 +1,6 @@
 package core.ui.designsystem.atom
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
-import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonColors
 import androidx.compose.material3.IconButtonDefaults
@@ -52,7 +51,7 @@ fun SIconButton(
         enabled = enabled,
         interactionSource = interactionSource,
         content = {
-            Icon(
+            SSmallIcon(
                 painter = painterResource(iconResource),
                 contentDescription = null,
             )
