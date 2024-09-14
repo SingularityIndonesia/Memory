@@ -1,4 +1,5 @@
 import org.jetbrains.compose.ComposeExtension
+import plugin.convention.companion.Shared
 
 plugins {
     id("LibraryConventionV1")
@@ -8,6 +9,16 @@ plugins {
     id("FeatureHttpClient")
     id("FeatureCoroutine")
     id("FeatureContextReceiver")
+    id("FeatureSerialization")
+}
+
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            Shared("compose")
+            Shared("simpleactivity")
+        }
+    }
 }
 
 android {

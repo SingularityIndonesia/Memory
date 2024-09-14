@@ -29,6 +29,19 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
+        includeBuild("../Shared") {
+            dependencySubstitution {
+                // include all Library
+                File(settingsDir, "../Shared")
+                    .listFiles()
+                    ?.asSequence()
+                    ?.filter { it.isDirectory }
+                    ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
+                    ?.onEach { dir ->
+                        substitute(module("shared:${dir.name}")).using(project(":${dir.name}"))
+                    }?.toList()
+            }
+        }
     }
 }
 
