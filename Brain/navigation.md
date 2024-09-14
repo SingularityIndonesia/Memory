@@ -24,6 +24,20 @@ fun Navigation(controller: NavHostController) {
         }  
     }
 }
+
+// # Feature 2 -------------------------------------------------------------------------------------  
+val Feature1Route =  
+    Route<UnitParam, UnitResult>(route = "feature1", title = "Feature 1", canGoBack = false)  
+  
+// # Feature 2 -------------------------------------------------------------------------------------  
+// Note: never parse complex object to the parameter  
+// Parse only essentials parameter like identifier and intent  
+@Serializable  
+data class Feature2RouteParam(  
+    val magicNumber: Int,  
+) : UrlParam  
+  
+val Feature2Route = Route<Feature2RouteParam, UnitResult>(route = "feature2", title = "Feature 2")
 ```
 
 
