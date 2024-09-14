@@ -4,6 +4,16 @@ plugins {
     // id("CompileWasm")
     id("FeatureCoroutine")
     id("FeaturePane")
+    id("FeatureContextReceiver")
+    id("FeatureSerialization")
+}
+
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation(project(":compose"))
+        }
+    }
 }
 
 android {

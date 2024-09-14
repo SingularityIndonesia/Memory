@@ -36,6 +36,7 @@ kotlin {
         commonMain.dependencies {
             System("core")
             Shared("common")
+            Shared("navigation")
             Shared("webclient")
             Shared("viewmodel")
             Shared("orbitmvi-extension")

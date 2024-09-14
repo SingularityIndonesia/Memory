@@ -1,19 +1,17 @@
-package core.example.navigation.composeApp
+package navigation.example.composeApp
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import core.example.navigation.feature1.presentation.pane.Feature1Pane
-import core.example.navigation.feature2.presentation.pane.Feature2Pane
-import core.navigation.Route
-import core.navigation.UnitParam
-import core.navigation.UnitResult
-import core.navigation.UrlParam
-import core.navigation.navigate
-import core.ui.SingularityScope
 import kotlinx.serialization.Serializable
+import navigation.Route
+import navigation.UnitParam
+import navigation.UnitResult
+import navigation.UrlParam
+import navigation.example.feature1.Feature1Pane
+import navigation.example.feature2.Feature2Pane
+import navigation.navigate
 
-context(SingularityScope)
 @Composable
 fun Navigation(controller: NavHostController) {
     NavHost(navController = controller, startDestination = Feature1Route.route) {

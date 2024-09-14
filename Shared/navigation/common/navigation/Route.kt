@@ -1,12 +1,20 @@
-package core.navigation
+package navigation
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Stable
-import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
@@ -14,24 +22,7 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import compose.BackHandler
-import core.ui.SingularityScope
-import core.ui.designsystem.molecule.SRouteHeader
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-
-@RequiresOptIn(message = "Do not use this, this property should no be expose anywhere.")
-@Retention(value = AnnotationRetention.BINARY)
-annotation class IllegalAccess
-
-@Stable
-interface RouteScope<R : NavigationResult> {
-    @IllegalAccess
-    val controller: NavController
-
-    fun goBack()
-
-    fun returnResult(result: R)
-}
 
 /**
  * @param canGoBack if true top navigator will be shown and back action will be intercepted
@@ -41,10 +32,10 @@ data class Route<P : UrlParam, R : NavigationResult>(
     val title: String,
     val canGoBack: Boolean = true,
 ) {
-    context(SingularityScope, NavGraphBuilder)
-
+    context(NavGraphBuilder)
     inline operator fun <reified P : UrlParam, R : NavigationResult> invoke(
         controller: NavHostController,
+        noinline header: (@Composable (title: String, onBack: () -> Unit) -> Unit)? = null,
         crossinline content: @Composable RouteScope<R>.(P) -> Unit,
     ) {
         route<P, R>(
@@ -52,28 +43,19 @@ data class Route<P : UrlParam, R : NavigationResult>(
             title = title,
             canGoBack = canGoBack,
             controller = controller,
+            header = header,
             content = content,
         )
     }
 }
 
-context(RouteScope<R>)
-inline fun <reified P : UrlParam, R : NavigationResult> navigate(
-    route: Route<P, R>,
-    param: P,
-) {
-    val routeWithParam = "${route.route}?param=${Json.encodeToString(param)}"
-
-    @OptIn(IllegalAccess::class)
-    controller.navigate(routeWithParam)
-}
-
-context(SingularityScope, NavGraphBuilder)
+context(NavGraphBuilder)
 inline fun <reified P : UrlParam, R : NavigationResult> route(
     route: String,
     title: String,
     controller: NavController,
     canGoBack: Boolean = true,
+    noinline header: (@Composable (title: String, onBack: () -> Unit) -> Unit)? = null,
     crossinline content: @Composable RouteScope<R>.(P) -> Unit,
 ) {
     composable(
@@ -86,22 +68,8 @@ inline fun <reified P : UrlParam, R : NavigationResult> route(
                 },
             ),
     ) { backStackEntry ->
-        val scope =
-            remember(this@NavGraphBuilder.provider) {
-                object : RouteScope<R> {
-                    @OptIn(IllegalAccess::class)
-                    override val controller: NavController = controller
 
-                    override fun goBack() {
-                        if (canGoBack) {
-                            controller.popBackStack()
-                        }
-                    }
-
-                    override fun returnResult(result: R) {
-                    }
-                }
-            }
+        val scope = routeScope<R>(controller)
 
         val param: P =
             run {
@@ -114,10 +82,11 @@ inline fun <reified P : UrlParam, R : NavigationResult> route(
                 RouteContent(
                     title = title,
                     param = param,
+                    header = header,
                     panel = content,
                 )
             } else {
-                RouteContentNoHeader(
+                RouteContentCantGoBack(
                     param = param,
                     panel = content,
                 )
@@ -126,25 +95,43 @@ inline fun <reified P : UrlParam, R : NavigationResult> route(
     }
 }
 
-context(SingularityScope, RouteScope<R>)
+// # Route Containers ------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------
+context(RouteScope<R>)
 @Composable
 inline fun <reified P : UrlParam, R : NavigationResult> RouteContent(
     title: String,
     param: P,
+    noinline header: (@Composable (title: String, onBack: () -> Unit) -> Unit)? = null,
     panel: @Composable RouteScope<R>.(P) -> Unit,
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
-        SRouteHeader(
-            title = title,
-            onBack = { goBack() },
-        )
+        if (header == null) {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                IconButton(
+                    onClick = ::goBack,
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Default.ArrowBack,
+                        contentDescription = "back",
+                    )
+                }
+                Text(title, style = MaterialTheme.typography.titleMedium)
+            }
+        } else {
+            header.invoke(title, ::goBack)
+        }
+
         panel.invoke(this@RouteScope, param)
     }
 }
 
-context(SingularityScope, RouteScope<R>)
+context(RouteScope<R>)
 @Composable
-inline fun <reified P : UrlParam, R : NavigationResult> RouteContentNoHeader(
+inline fun <reified P : UrlParam, R : NavigationResult> RouteContentCantGoBack(
     param: P,
     panel: @Composable RouteScope<R>.(P) -> Unit,
 ) {
