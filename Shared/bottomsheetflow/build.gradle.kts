@@ -4,7 +4,7 @@ import plugin.convention.companion.System
 plugins {
     id("LibraryConventionV1")
     id("CompileIOS")
-    /*id("CompileWasm")*/
+    // id("CompileWasm")
     id("FeatureCoroutine")
     id("FeaturePane")
     id("FeatureContextReceiver")
@@ -13,6 +13,7 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
+            // fixme: should not depend on core
             System("core")
             Shared("simpleactivity")
         }

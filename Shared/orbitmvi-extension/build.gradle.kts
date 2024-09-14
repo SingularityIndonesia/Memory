@@ -7,6 +7,7 @@ plugins {
     id("FeatureContextReceiver")
 }
 
+// fixme: not working why?
 // kotlin {
 //    sourceSets {
 //        commonMain.dependencies {

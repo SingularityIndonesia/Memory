@@ -10,6 +10,7 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
+            // fixme: should not depend on core
             System("core")
         }
         androidMain.dependencies {
