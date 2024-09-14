@@ -6,7 +6,7 @@
       {
         "id": "da25b4aed31e2d9d",
         "type": "tabs",
-        "dimension": 78.1021897810219,
+        "dimension": 81.75182481751825,
         "children": [
           {
             "id": "58667d60be34309b",
@@ -14,7 +14,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "route component.md",
+                "file": "navigation.md",
                 "mode": "source",
                 "source": false
               }
@@ -25,7 +25,7 @@
       {
         "id": "43cce95dccf64edf",
         "type": "tabs",
-        "dimension": 21.897810218978105,
+        "dimension": 18.248175182481752,
         "children": [
           {
             "id": "44a9589184549b56",
@@ -33,7 +33,7 @@
             "state": {
               "type": "localgraph",
               "state": {
-                "file": "route component.md",
+                "file": "navigation.md",
                 "options": {
                   "collapse-filter": true,
                   "search": "",
@@ -112,7 +112,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 215.5
   },
   "right": {
     "id": "1b7a36770ac880b0",
@@ -128,7 +128,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "route component.md",
+                "file": "navigation.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -145,7 +145,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "route component.md",
+                "file": "navigation.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -168,7 +168,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "route component.md"
+                "file": "navigation.md"
               }
             }
           }
@@ -191,11 +191,11 @@
   },
   "active": "58667d60be34309b",
   "lastOpenFiles": [
-    "route.md",
     "separation of control principle.md",
     "route component.md",
-    "pane.md",
+    "route.md",
     "navigation.md",
+    "pane.md",
     "pane rule.md"
   ]
 }

@@ -1,25 +1,5 @@
 example:
 ```kotlin
-@Composable  
-fun Navigation(controller: NavHostController) {  
-    NavHost(navController = controller, startDestination = Feature1Route.route) {  
-        Feature1Route<UnitParam, UnitResult>(  
-            controller = controller,  
-        ) {  
-            Feature1Pane(  
-                onNext = {  
-                    val param = Feature2RouteParam(1)  
-                    navigate(route = Feature2Route, param = param)  
-                },  
-            )  
-        }  
-  
-        Feature2Route<Feature2RouteParam, UnitResult>(  
-            controller = controller,  
-        ) {  
-            Feature2Pane(magicNumber = it.magicNumber)  
-        }  
-    }}  
   
 // # Feature 2 -------------------------------------------------------------------------------------  
 val Feature1Route =  
