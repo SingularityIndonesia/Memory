@@ -29,19 +29,6 @@ dependencyResolutionManagement {
             }
         }
         mavenCentral()
-        includeBuild("../System") {
-            dependencySubstitution {
-                // include all Library
-                File(settingsDir, "../System")
-                    .listFiles()
-                    ?.asSequence()
-                    ?.filter { it.isDirectory }
-                    ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
-                    ?.onEach { dir ->
-                        substitute(module("system:${dir.name}")).using(project(":${dir.name}"))
-                    }?.toList()
-            }
-        }
     }
 }
 

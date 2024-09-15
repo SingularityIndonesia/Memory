@@ -37,10 +37,8 @@ kotlin {
             System("core")
             Shared("common")
             Shared("navigation")
-            Shared("webclient")
             Shared("viewmodel")
             Shared("orbitmvi-extension")
-            Shared("bottomsheetflow")
             Shared("simpleactivity")
 
             presentation("authentication")

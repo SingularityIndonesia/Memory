@@ -1,9 +1,7 @@
 package gemini
 
-import core.operation.SystemResult
-
 interface GeminiAgent {
-    suspend fun sendMessage(message: String): SystemResult<String>
+    suspend fun sendMessage(message: String): Result<String>
 }
 
 expect fun createAgent(

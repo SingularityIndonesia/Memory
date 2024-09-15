@@ -1,6 +1,5 @@
 package gemini
 
-import core.operation.SystemResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -10,7 +9,7 @@ actual fun createAgent(
     defaultPrompt: List<String>,
 ): GeminiAgent =
     object : GeminiAgent {
-        override suspend fun sendMessage(message: String): SystemResult<String> =
+        override suspend fun sendMessage(message: String): Result<String> =
             withContext(Dispatchers.Default) {
                 TODO("Ios is not yet supported")
             }

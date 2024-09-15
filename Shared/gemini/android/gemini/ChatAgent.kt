@@ -7,7 +7,6 @@ import com.google.ai.client.generativeai.type.HarmCategory
 import com.google.ai.client.generativeai.type.SafetySetting
 import com.google.ai.client.generativeai.type.content
 import com.google.ai.client.generativeai.type.generationConfig
-import core.operation.SystemResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -69,7 +68,7 @@ actual fun createAgent(
         )
 
     return object : GeminiAgent {
-        override suspend fun sendMessage(message: String): SystemResult<String> =
+        override suspend fun sendMessage(message: String): Result<String> =
             withContext(Dispatchers.Default) {
                 runCatching {
                     val response = geminiClient.chat.sendMessage(message)
@@ -81,8 +80,7 @@ actual fun createAgent(
                     }
 
                     response.text ?: throw NullPointerException("Response null")
-                }.map { SystemResult.Success(it) }
-                    .getOrElse { SystemResult.Error(TODO()) }
+                }
             }
     }
 }

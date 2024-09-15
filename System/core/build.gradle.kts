@@ -8,6 +8,7 @@ plugins {
     id("FeaturePane")
     id("FeatureHttpClient")
     id("FeatureCoroutine")
+    id("FeatureAndroidPluto")
     id("FeatureContextReceiver")
     id("FeatureSerialization")
 }

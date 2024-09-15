@@ -1,6 +1,5 @@
-package webclient
+package core.webclient
 
-import com.pluto.plugins.network.ktor.PlutoKtorInterceptor
 import core.context.WebClient
 import core.lift
 import core.operation.SystemResult
@@ -37,7 +36,6 @@ actual fun defaultWebClient(
                         path(basePath)
                     }
                 }
-                install(PlutoKtorInterceptor)
             }
         }
 
