@@ -50,6 +50,13 @@ class FeaturePane : ComposePlugin() {
                 sourceSets.commonTest.dependencies {
                     implementation(libs.findLibrary("orbit-test").get())
                 }
+
+                sourceSets.getByName("desktopMain") {
+                    dependencies {
+                        implementation(Dependencies(project).desktop.currentOs)
+                        implementation(libs.findLibrary("coroutine-swing").get())
+                    }
+                }
             }
 
             withBaseExtension {

@@ -25,6 +25,8 @@ class LibraryConventionV1 : Plugin<Project> {
             }
 
             withKotlinMultiplatformExtension {
+                jvm("desktop")
+
                 androidTarget {
                     compilations.all {
                         kotlinOptions {

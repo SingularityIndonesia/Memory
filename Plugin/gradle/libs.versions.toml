@@ -61,6 +61,8 @@ coroutine-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android
 coroutine-core-iosarm64 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-iosarm64", version.ref = "coroutine" }
 coroutine-core-iossimulatorarm64 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-iossimulatorarm64", version.ref = "coroutine" }
 coroutine-core-js = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core-js", version.ref = "coroutine" }
+coroutine-swing = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-swing", version.ref = "coroutine" }
+
 
 # pluto
 lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
