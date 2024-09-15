@@ -23,3 +23,4 @@ val SystemToken.`small-padding` get() = SIZE_4
 val SystemToken.`medium-padding` get() = SIZE_8
 val SystemToken.`large-padding` get() = SIZE_16
 val SystemToken.`extra-large-padding` get() = SIZE_24
+val SystemToken.`media-thumbnail-size` get() = SIZE_60

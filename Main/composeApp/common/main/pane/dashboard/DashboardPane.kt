@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
@@ -18,11 +19,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import core.ui.SingularityScope
+import core.ui.concept.organism.Journal
 import core.ui.designsystem.atom.SSmallCard
 import core.ui.designsystem.atom.SSmallIcon
 import core.ui.designsystem.atom.SSmallSpacing
 import core.ui.designsystem.atom.STextTitle
 import core.ui.designsystem.boson.DesignToken
+import core.ui.designsystem.boson.`large-padding`
 import core.ui.designsystem.boson.`small-padding`
 import core.ui.designsystem.boson.`small-spacing`
 import core.ui.designsystem.molecule.SHeader
@@ -42,6 +45,7 @@ context(SingularityScope)
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun DashboardPane() {
+    val attr = DesignToken.current
     val scope = rememberCoroutineScope()
     val pagerState = rememberPagerState(initialPage = 1, pageCount = { 3 })
     val selectedTab = remember { mutableIntStateOf(0) }
@@ -70,11 +74,13 @@ fun DashboardPane() {
                 )
 
                 // Journal
-                Box(
-                    modifier = Modifier.weight(1f),
-                ) {
-                    STextTitle("Journal")
-                }
+                Journal(
+                    modifier =
+                        Modifier
+                            .weight(1f)
+                            .fillMaxWidth()
+                            .padding(horizontal = attr.`large-padding`),
+                )
             }
         }
 
