@@ -11,15 +11,23 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
-import authentication.pane.login.LoginPane
+import com.mmk.kmpauth.google.GoogleAuthCredentials
+import com.mmk.kmpauth.google.GoogleAuthProvider
+import main.pane.login.LoginPane
 import common.StateSaver
 import common.getPlatform
 import common.isIOS
 import core.ui.SingularityApp
+import dev.gitlive.firebase.Firebase
+import dev.gitlive.firebase.FirebaseOptions
+import dev.gitlive.firebase.initialize
+import main.pane.login.LoginPaneViewModel
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
@@ -28,6 +36,25 @@ fun App() {
     val navController = rememberNavController()
     val stateSaver = remember { StateSaver() }
     val context = remember { MainContext() }
+    val viewModel: LoginPaneViewModel = viewModel()
+
+    LaunchedEffect(Unit) {
+        /*Firebase.initialize(
+            context = , //Fixme need context
+            options = FirebaseOptions(
+                applicationId = "1:990511351674:android:9cc5989bfb7eccecb1f8c3",
+                projectId = "memories-434910",
+                apiKey = "AIzaSyCXBoD0QBeBk5MymcGQ1mba36RYgNbYdC8",
+            )
+        )*/
+        GoogleAuthProvider
+            .create(
+                GoogleAuthCredentials(
+                    serverId = "990511351674-r9hcva95htr8upshhaqo838sl1mcvvns.apps.googleusercontent.com"
+                )
+            )
+        viewModel.doLogin() // GoogleAuthProvider should ready before sign in with google was invoked
+    }
 
     val topPadding =
         WindowInsets.safeDrawing
@@ -55,7 +82,8 @@ fun App() {
                 )
             }*/
 
-            LoginPane()
+            /*LoginPane()*/
+            LoginPane(viewModel = viewModel)
         }
     }
 }

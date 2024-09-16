@@ -44,6 +44,10 @@ kotlin {
             model("authentication")
             presentation("dashboard")
             model("dashboard")
+
+            implementation("io.github.mirzemehdi:kmpauth-google:2.0.0")
+            implementation("io.github.mirzemehdi:kmpauth-firebase:2.0.0")
+            implementation("io.github.mirzemehdi:kmpauth-uihelper:2.0.0")
         }
     }
 }
