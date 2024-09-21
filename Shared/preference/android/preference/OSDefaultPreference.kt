@@ -19,6 +19,7 @@ actual class OSDefaultPreference(
 ) : Preference {
     companion object {
         const val CONTENT_NULL = "CONTENT NULL"
+        const val OPERATION_TIMEOUT_DURATION = 1000L
     }
 
     override suspend fun put(
@@ -54,9 +55,8 @@ actual class OSDefaultPreference(
                     .apply()
 
                 var totalWaitingDuration = 0L
-                val timeoutDuration = 1000L
                 while (!androidPreference.getString(id, "").equals(content)) {
-                    if (totalWaitingDuration >= timeoutDuration) {
+                    if (totalWaitingDuration >= OPERATION_TIMEOUT_DURATION) {
                         coroutine.cancel()
                         continuation.resume(Result.failure(TimeoutException()))
                         break
@@ -99,9 +99,8 @@ actual class OSDefaultPreference(
                     .apply()
 
                 var totalWaitingDuration = 0L
-                val timeoutDuration = 1000L
                 while (androidPreference.contains(id)) {
-                    if (totalWaitingDuration >= timeoutDuration) {
+                    if (totalWaitingDuration >= OPERATION_TIMEOUT_DURATION) {
                         throw TimeoutException()
                     }
                     delay(100L)
@@ -127,9 +126,8 @@ actual class OSDefaultPreference(
                     .apply()
 
                 var totalWaitingDuration = 0L
-                val timeoutDuration = 1000L
                 while (androidPreference.all.isNotEmpty()) {
-                    if (totalWaitingDuration >= timeoutDuration) {
+                    if (totalWaitingDuration >= OPERATION_TIMEOUT_DURATION) {
                         throw TimeoutException()
                     }
                     delay(100L)
