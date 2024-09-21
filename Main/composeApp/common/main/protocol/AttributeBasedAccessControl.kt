@@ -9,7 +9,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import core.exception.AccessControlException
+import core.exception.ABACException
 import core.operation.SystemResult
 import core.protocol.AccessControl
 import core.ui.SingularityScope
@@ -19,8 +19,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 /**
  * See: [access control design layer](https://github.com/SingularityIndonesia/Memory/blob/main/Brain/image/access%20control%20design%20layer.jpg)
  */
-class AttributeBasedAccessControl : AccessControl<AccessControlException> {
-    private val _fallBack = MutableStateFlow<AccessControlException?>(null)
+class AttributeBasedAccessControl : AccessControl<ABACException> {
+    private val _fallBack = MutableStateFlow<ABACException?>(null)
     override val fallBack = _fallBack
 
     override suspend fun <T> invoke(request: () -> SystemResult<T>): SystemResult<T> {
