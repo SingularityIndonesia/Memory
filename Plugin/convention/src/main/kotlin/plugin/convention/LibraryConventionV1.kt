@@ -45,8 +45,8 @@ class LibraryConventionV1 : Plugin<Project> {
                 sourceSets.androidMain {
                     kotlin.srcDir("android")
                 }
-                sourceSets.androidNativeTest {
-                    kotlin.srcDir("androidTest")
+                sourceSets.androidUnitTest {
+                    kotlin.srcDir("androidUnitTest")
                 }
                 sourceSets.iosMain {
                     kotlin.srcDir("ios")
