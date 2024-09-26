@@ -11,16 +11,39 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.core.view.WindowCompat
+import core.Platform
+import core.Preference
+import core.StateSaver
+import core.SystemLogger
+import core.model.OSPreference
+import core.model.SystemLogger
+import core.tool.getPlatform
+import core.ui.SingularityApp
 
 class MainActivity : ComponentActivity() {
+    private val stateSaver = core.model.StateSaver
+    private val platform by lazy { getPlatform() }
+    private val systemLogger by lazy { SystemLogger() }
+    private val preference by lazy { OSPreference(this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             SetStatusBarColor()
-            App()
+            SingularityApp {
+                CompositionLocalProvider(
+                    StateSaver provides stateSaver,
+                    Platform provides platform,
+                    SystemLogger provides systemLogger,
+                    Preference provides preference,
+                ) {
+                    App()
+                }
+            }
         }
     }
 
