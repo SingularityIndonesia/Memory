@@ -1,4 +1,3 @@
-import plugin.convention.companion.Shared
 import plugin.convention.companion.System
 import plugin.convention.companion.data
 import plugin.convention.companion.model
@@ -18,7 +17,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             System("core")
-            Shared("common")
 
             data("authentication")
             model("authentication")

@@ -14,9 +14,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import core.ui.SingularityScope
+import core.SystemLogger
 
-context(SingularityScope)
 @Composable
 fun STabRow(
     selectedTabIndex: Int,
@@ -35,6 +34,8 @@ fun STabRow(
     },
     tabs: @Composable () -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     TabRow(
         selectedTabIndex = selectedTabIndex,
         modifier = modifier,
@@ -46,11 +47,10 @@ fun STabRow(
     )
 
     LaunchedEffect(selectedTabIndex) {
-        log("Tab focus on $selectedTabIndex")
+        systemLogger.log("Tab focus on $selectedTabIndex")
     }
 }
 
-context(SingularityScope)
 @Composable
 fun STab(
     selected: Boolean,
@@ -62,10 +62,12 @@ fun STab(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     Tab(
         selected = selected,
         onClick = {
-            log("Tab clicked $content")
+            systemLogger.log("Tab clicked $content")
             onClick()
         },
         modifier = modifier,

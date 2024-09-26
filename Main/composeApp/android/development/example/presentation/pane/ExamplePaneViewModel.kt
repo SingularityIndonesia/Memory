@@ -2,17 +2,17 @@ package development.example.presentation.pane
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import core.operation.getOrElse
-import core.operation.map
+import core.adt.getOrElse
+import core.adt.map
+import core.tool.launch
+import core.tool.postSideEffect
+import core.tool.reduce
 import development.example.model.ExampleModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.ensureActive
-import orbitmviextension.postSideEffect
-import orbitmviextension.reduce
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.container
-import viewmodel.launch
 
 class ExamplePaneViewModel(
     private val exampleModel: ExampleModel = ExampleModel(),

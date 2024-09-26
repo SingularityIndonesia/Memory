@@ -1,9 +1,9 @@
 package development
 
 import androidx.compose.runtime.Composable
+import core.tool.SimpleActivity
 import core.ui.SingularityApp
 import development.example.presentation.pane.ExamplePane
-import simpleactivity.SimpleActivity
 
 class DevelopmentPreviewActivity : SimpleActivity() {
     @Composable

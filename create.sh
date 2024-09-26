@@ -54,7 +54,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             System("core")
-            Shared("common")
 EOF
 )
 presentation_script_pt2="
@@ -100,7 +99,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             System("core")
-            Shared("common")
 
 EOF
 )
@@ -142,7 +140,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             System("core")
-            Shared("common")
         }
     }
 }

@@ -14,9 +14,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import core.ui.SingularityScope
+import core.SystemLogger
 
-context(SingularityScope)
 @Composable
 fun SFloatingActionButton(
     onClick: () -> Unit,
@@ -28,9 +27,11 @@ fun SFloatingActionButton(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable () -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     FloatingActionButton(
         onClick = {
-            log("FloatingActionButton clicked $content")
+            systemLogger.log("FloatingActionButton clicked $content")
             onClick()
         },
         modifier = modifier,

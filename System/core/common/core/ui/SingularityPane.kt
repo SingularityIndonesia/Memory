@@ -8,13 +8,9 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.runtime.Composable
 
-context(SingularityScope)
 @Composable
-fun SingularityPane(
-    content: @Composable context(SingularityScope, BoxScope)
-    () -> Unit,
-) {
+fun SingularityPane(content: @Composable BoxScope.() -> Unit) {
     Box {
-        content(this@SingularityScope, this)
+        content(this)
     }
 }

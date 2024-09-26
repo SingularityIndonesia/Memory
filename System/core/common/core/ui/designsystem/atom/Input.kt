@@ -19,11 +19,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.input.VisualTransformation
-import core.ui.SingularityScope
-import core.ui.designsystem.boson.SingularityTheme
+import core.SystemLogger
+import core.SystemToken
 import core.ui.designsystem.boson.`large-padding`
 
-context(SingularityScope)
 @Composable
 fun STextField(
     value: String,
@@ -50,10 +49,12 @@ fun STextField(
     shape: Shape = TextFieldDefaults.shape,
     colors: TextFieldColors = TextFieldDefaults.colors(),
 ) {
+    val systemLogger = SystemLogger.current
+
     TextField(
         value = value,
         onValueChange = {
-            log("Typing $it")
+            systemLogger.log("Typing $it")
             onValueChange(it)
         },
         modifier = modifier,
@@ -80,13 +81,12 @@ fun STextField(
     )
 }
 
-context(SingularityScope)
 @Composable
 fun SSearchComponent(
     clue: String,
     onSearch: (String) -> Unit,
 ) {
-    val attr = SingularityTheme.attr
+    val attr = SystemToken.current
     STextField(
         modifier =
             Modifier

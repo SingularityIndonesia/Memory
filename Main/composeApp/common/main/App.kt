@@ -11,51 +11,54 @@ import androidx.compose.foundation.layout.imePadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.rememberNavController
-import common.StateSaver
-import common.getPlatform
-import common.isIOS
+import core.Platform
+import core.StateSaver
+import core.SystemLogger
+import core.adt.IOSPlatform
 import core.ui.SingularityApp
-import core.ui.SingularityScope
 import main.protocol.AttributeBasedAccessControl
 import main.protocol.AuthenticationProtocol
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 @Preview
-fun App() {
-    val singularityScope = remember { SingularityScope() }
+fun App(vm: AppViewModel = viewModel()) {
     val navController = rememberNavController()
-    val stateSaver = remember { StateSaver() }
 
-    val topPadding =
-        WindowInsets.safeDrawing
-            .asPaddingValues()
-            .calculateTopPadding()
-            .let {
-                if (getPlatform().isIOS()) {
-                    it.minus(8.dp)
-                } else {
-                    it.minus(0.dp)
-                }
-            }
-
-    SingularityApp(singularityScope = singularityScope) {
-        Box(
-            modifier =
-                Modifier
-                    .padding(top = topPadding)
-                    .imePadding(),
+    SingularityApp {
+        CompositionLocalProvider(
+            StateSaver provides vm.stateSaver,
+            Platform provides vm.platform,
+            SystemLogger provides vm.systemLogger,
         ) {
-            AuthenticationProtocol {
-                AttributeBasedAccessControl {
-                    Feature(
-                        navController = navController,
-                        stateSaver = stateSaver,
-                    )
+            val topPadding =
+                WindowInsets.safeDrawing
+                    .asPaddingValues()
+                    .calculateTopPadding()
+                    .let {
+                        when (Platform.current) {
+                            is IOSPlatform -> it.minus(8.dp)
+                            else -> it
+                        }
+                    }
+
+            Box(
+                modifier =
+                    Modifier
+                        .padding(top = topPadding)
+                        .imePadding(),
+            ) {
+                AuthenticationProtocol {
+                    AttributeBasedAccessControl {
+                        Feature(
+                            navController = navController,
+                        )
+                    }
                 }
             }
         }

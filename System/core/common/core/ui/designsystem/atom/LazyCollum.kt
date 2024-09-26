@@ -17,9 +17,8 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import core.ui.SingularityScope
+import core.SystemLogger
 
-context(SingularityScope)
 @Composable
 fun SLazyColumn(
     modifier: Modifier = Modifier,
@@ -32,6 +31,8 @@ fun SLazyColumn(
     userScrollEnabled: Boolean = true,
     content: LazyListScope.() -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     LazyColumn(
         modifier = modifier,
         state = state,
@@ -45,6 +46,6 @@ fun SLazyColumn(
     )
 
     LaunchedEffect(state.firstVisibleItemIndex) {
-        log("user scrolling to index ${state.firstVisibleItemIndex}")
+        systemLogger.log("user scrolling to index ${state.firstVisibleItemIndex}")
     }
 }

@@ -9,6 +9,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
+import core.SystemToken
 
 @Composable
 fun SingularityTheme(
@@ -28,7 +29,7 @@ fun SingularityTheme(
     val systemToken = remember { SystemToken() }
 
     CompositionLocalProvider(
-        DesignToken provides systemToken,
+        SystemToken provides systemToken,
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
@@ -36,11 +37,4 @@ fun SingularityTheme(
             content = content,
         )
     }
-}
-
-object SingularityTheme {
-    @Suppress("DEPRECATION")
-    val attr: SystemToken
-        @Composable
-        get() = DesignToken.current
 }

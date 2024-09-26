@@ -13,10 +13,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import core.SystemToken
 import core.ui.Concept
 import core.ui.concept.atom.Media
 import core.ui.concept.atom.MediaThumbnail
-import core.ui.designsystem.boson.DesignToken
 import core.ui.designsystem.boson.`large-spacing`
 import core.ui.designsystem.boson.`media-thumbnail-size`
 import core.ui.designsystem.boson.`medium-spacing`
@@ -28,7 +28,7 @@ import system.designsystem.resources.ic_photo_library
 @Concept
 @Composable
 fun MediaSection(modifier: Modifier = Modifier) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
 
     Row(
         modifier =
@@ -47,7 +47,7 @@ fun MediaSection(modifier: Modifier = Modifier) {
 @Concept
 @Composable
 fun MediaThumbnailSection(modifier: Modifier = Modifier) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     Column(
         modifier =
             Modifier

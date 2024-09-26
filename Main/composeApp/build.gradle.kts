@@ -3,7 +3,6 @@
  * You are not allowed to remove the copyright. Unless you have a "free software" licence.
  */
 import plugin.convention.companion.ReleaseNote
-import plugin.convention.companion.Shared
 import plugin.convention.companion.System
 import plugin.convention.companion.cfg
 import plugin.convention.companion.presentation
@@ -35,11 +34,6 @@ kotlin {
         }
         commonMain.dependencies {
             System("core")
-            Shared("common")
-            Shared("navigation")
-            Shared("viewmodel")
-            Shared("orbitmvi-extension")
-            Shared("simpleactivity")
 
             presentation("authentication")
             presentation("discover")

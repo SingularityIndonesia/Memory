@@ -16,9 +16,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import core.ui.SingularityScope
+import core.SystemLogger
 
-context(SingularityScope)
 @Composable
 fun SSmallCard(
     onClick: () -> Unit,
@@ -31,9 +30,11 @@ fun SSmallCard(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     Card(
         onClick = {
-            log("Card is Clicked $content")
+            systemLogger.log("Card is Clicked $content")
             onClick()
         },
         modifier = modifier,
@@ -47,7 +48,6 @@ fun SSmallCard(
     )
 }
 
-context(SingularityScope)
 @Composable
 fun SMediumCard(
     onClick: () -> Unit,
@@ -60,9 +60,11 @@ fun SMediumCard(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     Card(
         onClick = {
-            log("Card is Clicked $content")
+            systemLogger.log("Card is Clicked $content")
             onClick()
         },
         modifier = modifier,
@@ -76,7 +78,6 @@ fun SMediumCard(
     )
 }
 
-context(SingularityScope)
 @Composable
 fun SLargeCard(
     onClick: () -> Unit,
@@ -89,9 +90,11 @@ fun SLargeCard(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     Card(
         onClick = {
-            log("Card is Clicked $content")
+            systemLogger.log("Card is Clicked $content")
             onClick()
         },
         modifier = modifier,

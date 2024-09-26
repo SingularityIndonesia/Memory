@@ -1,6 +1,6 @@
 package development.example.model
 
-import core.operation.SystemResult
+import core.adt.SystemResult
 import development.example.model.entity.ExampleEntity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

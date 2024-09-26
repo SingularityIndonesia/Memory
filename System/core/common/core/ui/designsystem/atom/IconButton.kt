@@ -7,11 +7,10 @@ import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import core.ui.SingularityScope
+import core.SystemLogger
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 
-context(SingularityScope)
 @Composable
 fun SIconButton(
     onClick: () -> Unit,
@@ -21,9 +20,11 @@ fun SIconButton(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable () -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     IconButton(
         onClick = {
-            log("Button clicked $content")
+            systemLogger.log("Button clicked $content")
             onClick()
         },
         modifier = modifier,
@@ -36,7 +37,6 @@ fun SIconButton(
 
 // # Extra -----------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------
-context(SingularityScope)
 @Composable
 fun SIconButton(
     onClick: () -> Unit,

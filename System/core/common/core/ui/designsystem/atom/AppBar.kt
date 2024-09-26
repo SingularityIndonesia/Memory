@@ -13,14 +13,14 @@ import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import core.ui.SingularityScope
+import core.SystemLogger
 
-context(SingularityScope)
 @Composable
 fun STopAppBar(
     title: String,
     onBack: () -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
     Row(
         modifier =
             Modifier
@@ -29,7 +29,7 @@ fun STopAppBar(
     ) {
         IconButton(
             onClick = {
-                log("Navigate back from $title")
+                systemLogger.log("Navigate back from $title")
                 onBack()
             },
         ) {

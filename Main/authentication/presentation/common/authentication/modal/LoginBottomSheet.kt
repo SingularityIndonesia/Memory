@@ -13,12 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import core.ui.SingularityScope
+import core.SystemToken
 import core.ui.designsystem.atom.SLargeSpacing
 import core.ui.designsystem.atom.SPrimaryButton
 import core.ui.designsystem.atom.SSmallIcon
 import core.ui.designsystem.atom.STextLabel
-import core.ui.designsystem.boson.DesignToken
 import core.ui.designsystem.boson.`large-padding`
 import core.ui.designsystem.boson.`medium-spacing`
 import core.ui.designsystem.boson.`on-primary`
@@ -26,7 +25,6 @@ import org.jetbrains.compose.resources.painterResource
 import system.designsystem.resources.Res
 import system.designsystem.resources.logo_of_singularity_indonesia_circle
 
-context(SingularityScope)
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LoginBottomSheet(
@@ -44,13 +42,12 @@ fun LoginBottomSheet(
     }
 }
 
-context(SingularityScope)
 @Composable
 fun LoginWithGoogleButton(
     showLoading: Boolean,
     onLogin: () -> Unit,
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
 
     SPrimaryButton(
         modifier =

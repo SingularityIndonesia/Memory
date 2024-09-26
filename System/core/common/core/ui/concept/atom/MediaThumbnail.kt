@@ -10,14 +10,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import core.SystemToken
 import core.ui.Concept
-import core.ui.designsystem.boson.DesignToken
 import core.ui.designsystem.boson.`media-thumbnail-size`
 
 @Concept
 @Composable
 fun MediaThumbnail(modifier: Modifier = Modifier) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     Box(
         modifier =
             Modifier

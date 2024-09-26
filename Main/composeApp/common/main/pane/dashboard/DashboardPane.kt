@@ -18,13 +18,12 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import core.ui.SingularityScope
+import core.SystemToken
 import core.ui.concept.organism.Journal
 import core.ui.designsystem.atom.SSmallCard
 import core.ui.designsystem.atom.SSmallIcon
 import core.ui.designsystem.atom.SSmallSpacing
 import core.ui.designsystem.atom.STextTitle
-import core.ui.designsystem.boson.DesignToken
 import core.ui.designsystem.boson.`large-padding`
 import core.ui.designsystem.boson.`small-padding`
 import core.ui.designsystem.boson.`small-spacing`
@@ -41,11 +40,10 @@ import system.designsystem.resources.ic_home_fill
 import system.designsystem.resources.ic_keyboard_double_arrow_left
 import system.designsystem.resources.ic_keyboard_double_arrow_right
 
-context(SingularityScope)
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun DashboardPane() {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     val scope = rememberCoroutineScope()
     val pagerState = rememberPagerState(initialPage = 1, pageCount = { 3 })
     val selectedTab = remember { mutableIntStateOf(0) }
@@ -129,14 +127,13 @@ private sealed class BackDirection {
     data object Left : BackDirection()
 }
 
-context(SingularityScope)
 @Composable
 private fun PageHeader(
     titleText: String,
     backDirection: BackDirection,
     onBackToDashboard: () -> Unit,
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     when (backDirection) {
         BackDirection.Left -> {
             SHeader(

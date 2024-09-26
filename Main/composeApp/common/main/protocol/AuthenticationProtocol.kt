@@ -5,10 +5,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import core.exception.AuthenticationException
-import core.operation.SystemResult
-import core.protocol.AccessControl
-import core.ui.SingularityScope
+import core.adt.AuthenticationException
+import core.adt.SystemResult
+import core.pattern.AccessControl
 import core.ui.designsystem.atom.STextTitle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -55,7 +54,6 @@ class AuthenticationProtocol : AccessControl<AuthenticationException> {
         }
 }
 
-context(SingularityScope)
 @Composable
 fun AuthenticationProtocol(
     modifier: Modifier = Modifier,

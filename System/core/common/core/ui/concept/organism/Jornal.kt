@@ -12,10 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import core.SystemToken
 import core.ui.Concept
 import core.ui.SingularityApp
 import core.ui.concept.molecule.MediaSection
-import core.ui.designsystem.boson.DesignToken
 import core.ui.designsystem.boson.`large-spacing`
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
@@ -26,7 +26,7 @@ import system.designsystem.resources.ic_edit
 @Concept
 @Composable
 fun Journal(modifier: Modifier = Modifier) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     Column(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(attr.`large-spacing`),

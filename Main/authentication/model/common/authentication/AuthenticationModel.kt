@@ -2,9 +2,9 @@ package authentication
 
 import authentication.entity.Authentication
 import authentication.entity.Token
-import core.exception.AuthenticationException
-import core.exception.IOException
-import core.operation.SystemResult
+import core.adt.AuthenticationException
+import core.adt.IOException
+import core.adt.SystemResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext

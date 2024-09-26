@@ -22,9 +22,8 @@ import androidx.compose.ui.input.pointer.PointerInputChange
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import core.ui.SingularityScope
+import core.SystemLogger
 
-context(SingularityScope)
 @Composable
 fun SSurface(
     onClick: () -> Unit = {},
@@ -39,6 +38,7 @@ fun SSurface(
     interactionSource: MutableInteractionSource = remember { MutableInteractionSource() },
     content: @Composable () -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
     Surface(
         modifier =
             Modifier
@@ -47,7 +47,7 @@ fun SSurface(
                     enabled = true,
                     indication = null,
                     onClick = {
-                        log("user clicking surface")
+                        systemLogger.log("user clicking surface")
                         onClick.invoke()
                     },
                 ).pointerInput(Unit) {
@@ -64,7 +64,9 @@ fun SSurface(
                             // Consuming event prevents other gestures or scroll to intercept
                             event.changes.forEach { pointerInputChange: PointerInputChange ->
                                 // pointerInputChange.consumePositionChange()
-                                log("User touching the screen x: ${pointerInputChange.position.x}, y: ${pointerInputChange.position.y}")
+                                systemLogger.log(
+                                    "User touching the screen x: ${pointerInputChange.position.x}, y: ${pointerInputChange.position.y}",
+                                )
                             }
                         } while (event.changes.any { it.pressed })
                     }

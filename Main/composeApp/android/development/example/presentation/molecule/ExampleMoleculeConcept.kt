@@ -15,7 +15,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import core.ui.Concept
 import core.ui.SingularityApp
-import core.ui.SingularityScope
 import core.ui.designsystem.atom.Expand
 import core.ui.designsystem.atom.SSecondaryButton
 import core.ui.designsystem.atom.STextLabel
@@ -23,7 +22,6 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-context(SingularityScope)
 @Concept
 @Composable
 fun ExampleMoleculeConcept(
@@ -34,7 +32,7 @@ fun ExampleMoleculeConcept(
     val actualLabel = remember(label) { mutableStateOf(label ?: "Example Molecule") }
 
     DisposableEffect(key1 = actualLabel.value) {
-        if (onClick != null) return@DisposableEffect  onDispose {  }
+        if (onClick != null) return@DisposableEffect onDispose { }
 
         val job: Job =
             scope.launch {

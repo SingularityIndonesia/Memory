@@ -4,8 +4,6 @@
  */
 package core.ui.designsystem.boson
 
-import androidx.compose.runtime.staticCompositionLocalOf
-
 /**
  * note: please write the system token `as is`, event if it sounds redundant.
  * ex: color/text/text-primary into colorTextTextPrimary.
@@ -14,14 +12,8 @@ import androidx.compose.runtime.staticCompositionLocalOf
     "Do not call this directly!",
     replaceWith =
         ReplaceWith(
-            "DesignToken.current",
-            "core.ui.designsystem.DesignToken",
+            "SystemToken.current",
+            "core.ui.designsystem.SystemToken",
         ),
 )
 class SystemToken
-
-val DesignToken =
-    staticCompositionLocalOf {
-        @Suppress("DEPRECATION")
-        (SystemToken())
-    }

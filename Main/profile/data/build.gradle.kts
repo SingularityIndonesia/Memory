@@ -1,4 +1,3 @@
-import plugin.convention.companion.Shared
 import plugin.convention.companion.System
 
 plugins {
@@ -14,7 +13,6 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             System("core")
-            Shared("common")
         }
     }
 }

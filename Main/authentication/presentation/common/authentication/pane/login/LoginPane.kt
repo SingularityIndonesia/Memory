@@ -9,9 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import authentication.component.ErrorSnackBar
 import authentication.modal.LoginBottomSheet
+import core.SystemToken
 import core.ui.SingularityApp
-import core.ui.SingularityScope
-import core.ui.designsystem.boson.DesignToken
 import org.jetbrains.compose.ui.tooling.preview.Preview
 
 data class LoginPaneState(
@@ -21,13 +20,12 @@ data class LoginPaneState(
     val showLoading: Boolean = false,
 )
 
-context(SingularityScope)
 @Composable
 fun LoginPane(
     modifier: Modifier = Modifier,
     viewModel: LoginViewModel = viewModel(),
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     val state by viewModel.container.stateFlow.collectAsState()
 
     Box(

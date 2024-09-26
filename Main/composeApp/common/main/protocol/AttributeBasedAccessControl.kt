@@ -9,10 +9,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import core.exception.ABACException
-import core.operation.SystemResult
-import core.protocol.AccessControl
-import core.ui.SingularityScope
+import core.adt.ABACException
+import core.adt.SystemResult
+import core.pattern.AccessControl
 import core.ui.designsystem.atom.STextTitle
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -28,7 +27,6 @@ class AttributeBasedAccessControl : AccessControl<ABACException> {
     }
 }
 
-context(SingularityScope)
 @Composable
 fun AttributeBasedAccessControl(
     modifier: Modifier = Modifier,

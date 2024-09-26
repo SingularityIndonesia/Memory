@@ -14,7 +14,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import core.ui.SingularityApp
-import core.ui.SingularityScope
 import core.ui.designsystem.atom.Expand
 import core.ui.designsystem.atom.SMediumSpacing
 import core.ui.designsystem.atom.SPrimaryButton
@@ -23,7 +22,6 @@ import development.example.presentation.organism.ExampleOrganism
 import org.orbitmvi.orbit.compose.collectAsState
 import org.orbitmvi.orbit.compose.collectSideEffect
 
-context(SingularityScope)
 @Composable
 fun ExamplePane(viewModel: ExamplePaneViewModel = viewModel()) {
     val context = LocalContext.current // example purpose only, do not depend on OS Context
@@ -41,9 +39,9 @@ fun ExamplePane(viewModel: ExamplePaneViewModel = viewModel()) {
         SMediumSpacing()
         ExampleOrganism(
             modifier =
-            Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+                Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
         )
 
         // display entities

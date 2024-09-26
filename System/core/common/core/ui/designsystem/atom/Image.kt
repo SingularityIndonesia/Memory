@@ -11,8 +11,8 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.DefaultAlpha
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
-import core.ui.SingularityScope
-import core.ui.designsystem.boson.DesignToken
+import core.SystemLogger
+import core.SystemToken
 import core.ui.designsystem.boson.`extra-large-icon-size`
 import core.ui.designsystem.boson.`large-icon-size`
 import core.ui.designsystem.boson.`large-logo-size`
@@ -31,7 +31,7 @@ fun SSmallIcon(
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     Image(
         painter = painter,
         contentDescription = contentDescription,
@@ -56,7 +56,7 @@ fun SMediumIcon(
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     Image(
         painter = painter,
         contentDescription = contentDescription,
@@ -81,7 +81,7 @@ fun SLargeIcon(
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     Image(
         painter = painter,
         contentDescription = contentDescription,
@@ -106,7 +106,7 @@ fun SExtraLargeIcon(
     alpha: Float = DefaultAlpha,
     colorFilter: ColorFilter? = null,
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
     Image(
         painter = painter,
         contentDescription = contentDescription,
@@ -121,7 +121,6 @@ fun SExtraLargeIcon(
     )
 }
 
-context(SingularityScope)
 @Composable
 fun SSmallLogo(
     painter: Painter,
@@ -133,10 +132,12 @@ fun SSmallLogo(
     // colorFilter: ColorFilter? = null
     onClick: () -> Unit = {},
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
+    val systemLogger = SystemLogger.current
+
     Card(
         onClick = {
-            log("Logo clicked $contentDescription")
+            systemLogger.log("Logo clicked $contentDescription")
             onClick()
         },
         shape = CircleShape,
@@ -156,7 +157,6 @@ fun SSmallLogo(
     }
 }
 
-context(SingularityScope)
 @Composable
 fun SMediumLogo(
     painter: Painter,
@@ -168,10 +168,12 @@ fun SMediumLogo(
     // colorFilter: ColorFilter? = null
     onClick: () -> Unit = {},
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
+    val systemLogger = SystemLogger.current
+
     Card(
         onClick = {
-            log("Logo clicked $contentDescription")
+            systemLogger.log("Logo clicked $contentDescription")
             onClick()
         },
         shape = CircleShape,
@@ -191,7 +193,6 @@ fun SMediumLogo(
     }
 }
 
-context(SingularityScope)
 @Composable
 fun SLargeLogo(
     painter: Painter,
@@ -203,10 +204,12 @@ fun SLargeLogo(
     // colorFilter: ColorFilter? = null
     onClick: () -> Unit = {},
 ) {
-    val attr = DesignToken.current
+    val attr = SystemToken.current
+    val systemLogger = SystemLogger.current
+
     Card(
         onClick = {
-            log("Logo clicked $contentDescription")
+            systemLogger.log("Logo clicked $contentDescription")
             onClick()
         },
         shape = CircleShape,

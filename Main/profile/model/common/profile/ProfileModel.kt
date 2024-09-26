@@ -1,6 +1,6 @@
 package profile
 
-import core.operation.SystemResult
+import core.adt.SystemResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import profile.entity.UserBasicInfo

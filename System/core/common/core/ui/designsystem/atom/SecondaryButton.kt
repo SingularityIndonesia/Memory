@@ -13,9 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import core.ui.SingularityScope
+import core.SystemLogger
 
-context(SingularityScope)
 @Composable
 fun SSecondaryButton(
     modifier: Modifier = Modifier,
@@ -33,10 +32,12 @@ fun SSecondaryButton(
     isLoading: Boolean = false,
     content: @Composable RowScope.() -> Unit,
 ) {
+    val systemLogger = SystemLogger.current
+
     Button(
         modifier = modifier,
         onClick = {
-            log("Button $content clicked")
+            systemLogger.log("Button $content clicked")
             if (!isLoading) {
                 onClick.invoke()
             }
@@ -68,7 +69,6 @@ fun SSecondaryButton(
 
 // # Extra -----------------------------------------------------------------------------------------
 // -------------------------------------------------------------------------------------------------
-context(SingularityScope)
 @Composable
 fun SSecondaryButton(
     modifier: Modifier = Modifier,

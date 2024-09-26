@@ -16,8 +16,7 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            Shared("compose")
-            Shared("simpleactivity")
+            Shared("preference")
         }
     }
 }

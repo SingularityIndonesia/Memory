@@ -3,8 +3,8 @@ package authentication.pane.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import authentication.AuthenticationModel
-import core.operation.SystemResult
-import core.operation.onSuccess
+import core.adt.SystemResult
+import core.adt.onSuccess
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost

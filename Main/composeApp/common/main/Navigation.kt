@@ -8,16 +8,10 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import common.StateSaver
-import core.ui.SingularityScope
 import main.pane.dashboard.DashboardPane
 
-context(SingularityScope)
 @Composable
-fun Feature(
-    navController: NavHostController,
-    stateSaver: StateSaver,
-) {
+fun Feature(navController: NavHostController) {
     NavHost(
         navController = navController,
         startDestination = "dashboard",
