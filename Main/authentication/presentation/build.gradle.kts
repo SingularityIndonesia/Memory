@@ -18,9 +18,11 @@ kotlin {
         commonMain.dependencies {
             System("core")
 
-            data("authentication")
             model("authentication")
+            data("authentication")
+
             model("profile")
+            data("profile")
         }
     }
 }

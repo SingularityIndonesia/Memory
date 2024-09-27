@@ -3,6 +3,7 @@ package authentication.pane.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import authentication.AuthenticationRepository
+import authentication.AuthenticationService
 import core.adt.SystemResult
 import core.adt.onSuccess
 import kotlinx.coroutines.launch
@@ -10,10 +11,11 @@ import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.container
 import profile.ProfileRepository
+import profile.ProfileService
 
 class LoginViewModel(
-    private val authenticationModel: AuthenticationRepository = AuthenticationRepository(),
-    private val profileModel: ProfileRepository = ProfileRepository(),
+    private val repository: AuthenticationRepository = AuthenticationService(),
+    private val profileModel: ProfileRepository = ProfileService(),
 ) : ViewModel(),
     ContainerHost<LoginPaneState, LoginPaneSideEffect> {
     override val container: Container<LoginPaneState, LoginPaneSideEffect> =
@@ -23,11 +25,11 @@ class LoginViewModel(
         intent {
             reduce { state.copy(showLoading = true) }
             val result =
-                authenticationModel
+                repository
                     .login()
                     .onSuccess { data ->
                         viewModelScope.launch {
-                            authenticationModel.saveToken(data.token)
+                            repository.saveToken(data.token)
                             // profileModel.saveUserBasicInfo(data.user)
                         }
                     }
