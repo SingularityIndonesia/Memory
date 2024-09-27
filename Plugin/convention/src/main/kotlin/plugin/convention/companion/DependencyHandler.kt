@@ -99,7 +99,6 @@ fun KotlinDependencyHandler.data(pkgName: String) {
  */
 fun KotlinDependencyHandler.model(pkgName: String) {
     if (project.name == "model") throw Error("Model cannot depends on another model")
-    if (project.name == "data") throw Error("Data cannot depends on model")
     implementation(project(":$pkgName:model"))
 }
 

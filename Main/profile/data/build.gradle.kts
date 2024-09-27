@@ -1,4 +1,5 @@
 import plugin.convention.companion.System
+import plugin.convention.companion.model
 
 plugins {
     id("LibraryConventionV1")
@@ -13,6 +14,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             System("core")
+            model("profile")
         }
     }
 }

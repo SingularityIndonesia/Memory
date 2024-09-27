@@ -2,18 +2,18 @@ package authentication.pane.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import authentication.AuthenticationModel
+import authentication.AuthenticationRepository
 import core.adt.SystemResult
 import core.adt.onSuccess
 import kotlinx.coroutines.launch
 import org.orbitmvi.orbit.Container
 import org.orbitmvi.orbit.ContainerHost
 import org.orbitmvi.orbit.container
-import profile.ProfileModel
+import profile.ProfileRepository
 
 class LoginViewModel(
-    private val authenticationModel: AuthenticationModel = AuthenticationModel(),
-    private val profileModel: ProfileModel = ProfileModel(),
+    private val authenticationModel: AuthenticationRepository = AuthenticationRepository(),
+    private val profileModel: ProfileRepository = ProfileRepository(),
 ) : ViewModel(),
     ContainerHost<LoginPaneState, LoginPaneSideEffect> {
     override val container: Container<LoginPaneState, LoginPaneSideEffect> =
