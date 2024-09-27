@@ -18,7 +18,7 @@ actual class OSPreference(
             PutStrategy.Replace -> preference.PutStrategy.Replace
         }
 
-    override suspend fun put(
+    actual override suspend fun put(
         id: String,
         content: String,
         strategy: PutStrategy,
@@ -29,9 +29,9 @@ actual class OSPreference(
             strategy.let(::toPreferenceStrategy),
         )
 
-    override suspend fun get(id: String): Result<String> = osPreference.get(id)
+    actual override suspend fun get(id: String): Result<String> = osPreference.get(id)
 
-    override suspend fun delete(id: String): Result<String> = osPreference.delete(id)
+    actual override suspend fun delete(id: String): Result<String> = osPreference.delete(id)
 
-    override suspend fun clear(): Result<Map<String, *>> = osPreference.clear()
+    actual override suspend fun clear(): Result<Map<String, *>> = osPreference.clear()
 }

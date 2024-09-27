@@ -19,23 +19,23 @@ import io.ktor.http.contentType
 import io.ktor.http.path
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
-actual class DefaultWebClient(
-    override val host: String,
-    override val basePath: String,
+actual class DefaultWebClient constructor(
+    actual override val host: String,
+    actual override val basePath: String,
 ) : WebClient {
     val ktorHttpClient by lazy {
         HttpClient {
             defaultRequest {
                 url {
                     protocol = URLProtocol.HTTPS
-                    host = this@DefaultWebClient.host
+                    this.host = this@DefaultWebClient.host
                     path(basePath)
                 }
             }
         }
     }
 
-    override suspend fun post(
+    actual override suspend fun post(
         endpoint: String?,
         headers: Map<String, String>?,
         params: Map<String, String>?,
@@ -70,7 +70,7 @@ actual class DefaultWebClient(
             suspend { response.readBytes() }
         }.lift()
 
-    override suspend fun get(
+    actual override suspend fun get(
         endpoint: String?,
         headers: Map<String, String>?,
         params: Map<String, String>?,
@@ -101,7 +101,7 @@ actual class DefaultWebClient(
                 suspend { response.readBytes() }
             }.lift()
 
-    override suspend fun put(
+    actual override suspend fun put(
         endpoint: String?,
         headers: Map<String, String>?,
         params: Map<String, String>?,
