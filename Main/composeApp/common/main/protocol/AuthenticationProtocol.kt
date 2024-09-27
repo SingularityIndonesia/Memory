@@ -7,7 +7,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import core.adt.AuthenticationException
 import core.adt.SystemResult
-import core.pattern.AccessControl
+import core.model.AccessControl
 import core.ui.designsystem.atom.STextTitle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

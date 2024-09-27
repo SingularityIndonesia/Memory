@@ -1,7 +1,7 @@
-package core.model
+package core.model.impl
 
 import core.adt.SystemResult
-import core.pattern.WebClient
+import core.model.WebClient
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 expect class DefaultWebClient : WebClient {

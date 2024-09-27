@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import core.adt.ABACException
 import core.adt.SystemResult
-import core.pattern.AccessControl
+import core.model.AccessControl
 import core.ui.designsystem.atom.STextTitle
 import kotlinx.coroutines.flow.MutableStateFlow
 

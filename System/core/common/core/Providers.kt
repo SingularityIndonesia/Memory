@@ -2,9 +2,9 @@ package core
 
 import androidx.compose.runtime.staticCompositionLocalOf
 import core.adt.Platform
+import core.model.Preference
 import core.model.StateSaver
-import core.pattern.Preference
-import core.pattern.SystemLogger
+import core.model.SystemLogger
 import core.ui.designsystem.boson.SystemToken
 
 val Platform =

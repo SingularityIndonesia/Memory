@@ -18,8 +18,8 @@ import core.Platform
 import core.Preference
 import core.StateSaver
 import core.SystemLogger
-import core.model.OSPreference
-import core.model.SystemLogger
+import core.model.impl.OSPreference
+import core.model.impl.SystemLogger
 import core.tool.getPlatform
 import core.ui.SingularityApp
 

@@ -1,7 +1,7 @@
-package core.model
+package core.model.impl
 
 import core.adt.PutStrategy
-import core.pattern.Preference
+import core.model.Preference
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
 expect class OSPreference : Preference {

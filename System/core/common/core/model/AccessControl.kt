@@ -1,4 +1,4 @@
-package core.pattern
+package core.model
 
 import core.adt.SystemException
 import core.adt.SystemResult

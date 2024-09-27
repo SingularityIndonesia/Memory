@@ -1,8 +1,8 @@
-package core.model
+package core.model.impl
 
 import core.adt.SystemResult
 import core.adt.lift
-import core.pattern.WebClient
+import core.model.WebClient
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.defaultRequest
 import io.ktor.client.request.HttpRequestBuilder

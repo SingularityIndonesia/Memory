@@ -14,8 +14,8 @@ import core.Preference
 import core.StateSaver
 import core.SystemLogger
 import core.adt.UnknownPlatform
-import core.pattern.DummyLogger
-import core.pattern.DummyPreference
+import core.model.dummy.DummyPreference
+import core.model.dummy.DummySystemLogger
 import core.ui.designsystem.atom.SSurface
 import core.ui.designsystem.boson.SingularityTheme
 
@@ -24,7 +24,7 @@ fun SingularityApp(content: @Composable () -> Unit) {
     // fixme: cannot override inline method, cannot provide dummy state saver.
     val stateSaver = remember { core.model.StateSaver }
     val platform = remember { UnknownPlatform }
-    val systemLogger = remember { DummyLogger }
+    val systemLogger = remember { DummySystemLogger }
     val preference = remember { DummyPreference }
 
     CompositionLocalProvider(

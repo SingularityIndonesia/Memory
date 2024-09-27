@@ -1,4 +1,4 @@
-package core.pattern
+package core.model
 
 import core.adt.SystemResult
 import core.tool.Mockable

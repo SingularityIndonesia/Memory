@@ -1,8 +1,8 @@
-package core.model
+package core.model.impl
 
 import android.content.Context
 import core.adt.PutStrategy
-import core.pattern.Preference
+import core.model.Preference
 import preference.OSPreference
 
 @Suppress("EXPECT_ACTUAL_CLASSIFIERS_ARE_IN_BETA_WARNING")
