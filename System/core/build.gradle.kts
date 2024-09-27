@@ -23,6 +23,10 @@ kotlin {
 
 android {
     namespace = "system.core"
+
+//    sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
+//    sourceSets["main"].res.srcDirs("src/androidMain/res")
+    sourceSets["main"].resources.srcDirs("src/commonMain/composeResources/")
 }
 
 extensions.getByType<ComposeExtension>().resources {

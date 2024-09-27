@@ -21,24 +21,11 @@ import core.ui.designsystem.boson.SingularityTheme
 
 @Composable
 fun SingularityApp(content: @Composable () -> Unit) {
-    // fixme: cannot override inline method, cannot provide dummy state saver.
-    val stateSaver = remember { core.model.StateSaver }
-    val platform = remember { UnknownPlatform }
-    val systemLogger = remember { DummySystemLogger }
-    val preference = remember { DummyPreference }
-
-    CompositionLocalProvider(
-        StateSaver provides stateSaver,
-        Platform provides platform,
-        SystemLogger provides systemLogger,
-        Preference provides preference,
-    ) {
-        SingularityTheme {
-            SSurface(
-                modifier = Modifier.fillMaxSize(),
-            ) {
-                content()
-            }
+    SingularityTheme {
+        SSurface(
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            content()
         }
     }
 }
