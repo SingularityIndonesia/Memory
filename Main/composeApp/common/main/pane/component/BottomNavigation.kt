@@ -29,7 +29,7 @@ fun BottomNavigation(
             "Spectrum" to Res.drawable.ic_looks to Res.drawable.ic_looks_fill,
             "Memories" to Res.drawable.ic_favorite to Res.drawable.ic_favorite_fill,
             "Discover" to Res.drawable.ic_search to Res.drawable.ic_search_fill,
-            "Profile" to Res.drawable.ic_person to Res.drawable.ic_person_fill,
+            "Color" to Res.drawable.ic_person to Res.drawable.ic_person_fill,
         )
 
     NavigationBar {

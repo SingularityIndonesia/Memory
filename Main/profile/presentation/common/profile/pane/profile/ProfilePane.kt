@@ -8,6 +8,6 @@ import core.ui.designsystem.atom.STextTitle
 @Composable
 fun ProfilePane(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
-        STextTitle("Profile Pane")
+        STextTitle("Color Pane")
     }
 }
