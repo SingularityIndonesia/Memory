@@ -1,0 +1,1 @@
+Memories is a platform we created to preserve the values a person holds. The value of an event, the value of an object, the value of an impression, the value of human consciousness—the memories—we call it [[color]].
