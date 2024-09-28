@@ -26,32 +26,13 @@ import system.designsystem.resources.ic_add
 fun App() {
     val navController = rememberNavController()
 
-    val topPadding =
-        WindowInsets.safeDrawing
-            .asPaddingValues()
-            .calculateTopPadding()
-            .let {
-                when (Platform.current) {
-                    is IOSPlatform -> it.minus(8.dp)
-                    else -> it
-                }
-            }
-
-    Box(
-        modifier =
-            Modifier
-                .padding(top = topPadding)
-                .imePadding(),
-    ) {
-        AuthenticationProtocol {
-            AttributeBasedAccessControl {
-                Feature(
-                    navController = navController,
-                )
-            }
+    AuthenticationProtocol {
+        AttributeBasedAccessControl {
+            Feature(
+                navController = navController,
+            )
         }
     }
-
 }
 
 @Preview
