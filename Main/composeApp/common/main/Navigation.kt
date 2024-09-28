@@ -4,22 +4,38 @@
  */
 package main
 
+import androidx.compose.foundation.layout.imePadding
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
+import core.ui.navigation.Route
+import core.ui.navigation.UnitParam
+import core.ui.navigation.UnitResult
 import main.pane.dashboard.DashboardPane
 
 @Composable
 fun Feature(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = "dashboard",
+        startDestination = DashboardRoute.route,
     ) {
-        composable(
-            route = "dashboard",
+
+        DashboardRoute<UnitParam, UnitResult>(
+            modifier = Modifier
+                .statusBarsPadding()
+                .imePadding(),
+            controller = navController,
         ) {
             DashboardPane()
         }
+
     }
 }
+
+val DashboardRoute = Route<UnitParam, UnitResult>(
+    route = "dashboard",
+    title = "Dashboard",
+    canGoBack = false
+)

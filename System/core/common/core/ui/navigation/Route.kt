@@ -34,11 +34,13 @@ data class Route<P : UrlParam, R : NavigationResult>(
 ) {
     context(NavGraphBuilder)
     inline operator fun <reified P : UrlParam, R : NavigationResult> invoke(
+        modifier: Modifier = Modifier,
         controller: NavHostController,
         noinline header: (@Composable (title: String, onBack: () -> Unit) -> Unit)? = null,
         crossinline content: @Composable RouteScope<R>.(P) -> Unit,
     ) {
         route<P, R>(
+            modifier = modifier,
             route = route,
             title = title,
             canGoBack = canGoBack,
@@ -51,6 +53,7 @@ data class Route<P : UrlParam, R : NavigationResult>(
 
 context(NavGraphBuilder)
 inline fun <reified P : UrlParam, R : NavigationResult> route(
+    modifier: Modifier = Modifier,
     route: String,
     title: String,
     controller: NavController,
@@ -80,6 +83,7 @@ inline fun <reified P : UrlParam, R : NavigationResult> route(
         with(scope) {
             if (canGoBack) {
                 RouteContent(
+                    modifier = modifier,
                     title = title,
                     param = param,
                     header = header,
@@ -87,6 +91,7 @@ inline fun <reified P : UrlParam, R : NavigationResult> route(
                 )
             } else {
                 RouteContentCantGoBack(
+                    modifier = modifier,
                     param = param,
                     panel = content,
                 )
@@ -100,12 +105,17 @@ inline fun <reified P : UrlParam, R : NavigationResult> route(
 context(RouteScope<R>)
 @Composable
 inline fun <reified P : UrlParam, R : NavigationResult> RouteContent(
+    modifier: Modifier = Modifier,
     title: String,
     param: P,
     noinline header: (@Composable (title: String, onBack: () -> Unit) -> Unit)? = null,
     panel: @Composable RouteScope<R>.(P) -> Unit,
 ) {
-    Column(modifier = Modifier.fillMaxSize()) {
+    Column(
+        modifier = Modifier
+        .fillMaxSize()
+        .then(modifier)
+    ) {
         if (header == null) {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -132,10 +142,15 @@ inline fun <reified P : UrlParam, R : NavigationResult> RouteContent(
 context(RouteScope<R>)
 @Composable
 inline fun <reified P : UrlParam, R : NavigationResult> RouteContentCantGoBack(
+    modifier: Modifier = Modifier,
     param: P,
     panel: @Composable RouteScope<R>.(P) -> Unit,
 ) {
-    Box(modifier = Modifier.fillMaxSize()) {
+    Box(
+        modifier = Modifier
+        .fillMaxSize()
+        .then(modifier)
+    ) {
         BackHandler(enable = true, onBack = {
             // can't go back
         })
