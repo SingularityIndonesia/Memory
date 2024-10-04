@@ -20,7 +20,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
  */
 class AttributeBasedAccessControl : AccessControl<ABACException> {
     private val _fallBack = MutableStateFlow<ABACException?>(null)
-    override val fallBack = _fallBack
+    val fallBack = _fallBack
 
     override suspend fun <T> invoke(request: () -> SystemResult<T>): SystemResult<T> {
         TODO("Not yet implemented")

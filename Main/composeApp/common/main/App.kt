@@ -4,20 +4,14 @@
  */
 package main
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.IconButton
-import androidx.compose.material3.Text
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
-import core.Platform
-import core.adt.IOSPlatform
-import core.ui.SingularityApp
+import authentication.pane.challange.AuthenticationChallangePane
 import core.ui.designsystem.atom.SIconButton
-import main.protocol.AttributeBasedAccessControl
 import main.protocol.AuthenticationProtocol
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import system.designsystem.resources.Res
 import system.designsystem.resources.ic_add
@@ -26,12 +20,23 @@ import system.designsystem.resources.ic_add
 fun App() {
     val navController = rememberNavController()
 
-    AuthenticationProtocol {
-        AttributeBasedAccessControl {
-            Feature(
-                navController = navController,
+    AuthenticationProtocol(
+        chalange = { e, onSuccess ->
+            AnimatedVisibility(
+                visible = true,
+                enter = slideInVertically(),
+                exit = slideOutVertically(),
+                content = {
+                    AuthenticationChallangePane(
+                        onSuccess = onSuccess,
+                    )
+                },
             )
-        }
+        },
+    ) {
+        Feature(
+            navController = navController,
+        )
     }
 }
 
@@ -40,6 +45,6 @@ fun App() {
 private fun Preview() {
     SIconButton(
         onClick = {},
-        iconResource = Res.drawable.ic_add
+        iconResource = Res.drawable.ic_add,
     )
 }

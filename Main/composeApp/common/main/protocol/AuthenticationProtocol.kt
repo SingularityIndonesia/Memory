@@ -4,17 +4,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
 import core.adt.AuthenticationException
 import core.adt.SystemResult
 import core.model.AccessControl
-import core.ui.designsystem.atom.STextTitle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -25,7 +25,18 @@ import kotlin.coroutines.resume
  */
 class AuthenticationProtocol : AccessControl<AuthenticationException> {
     private val _fallBack = MutableStateFlow<AuthenticationException?>(null)
-    override val fallBack = _fallBack
+    val fallBack = _fallBack.asStateFlow()
+
+    init {
+        CoroutineScope(Dispatchers.Main).launch {
+            delay(3000)
+            _fallBack.update { AuthenticationException("Test") }
+        }
+    }
+
+    internal fun onHandled() {
+        _fallBack.update { null }
+    }
 
     override suspend fun <T> invoke(request: () -> SystemResult<T>): SystemResult<T> =
         suspendCancellableCoroutine { continuation ->
@@ -56,7 +67,7 @@ class AuthenticationProtocol : AccessControl<AuthenticationException> {
 
 @Composable
 fun AuthenticationProtocol(
-    modifier: Modifier = Modifier,
+    chalange: @Composable (AuthenticationProtocol, onSuccess: () -> Unit) -> Unit,
     content: @Composable () -> Unit,
 ) {
     val authentication = remember { AuthenticationProtocol() }
@@ -66,9 +77,6 @@ fun AuthenticationProtocol(
     // Fall Back Authentication
     val requireAuthentication by authentication.fallBack.collectAsState()
     if (requireAuthentication != null) {
-        STextTitle(
-            modifier = modifier,
-            text = "Authentication Protocol Interception",
-        )
+        chalange.invoke(authentication, authentication::onHandled)
     }
 }

@@ -8,6 +8,7 @@ plugins {
     id("FeatureCoroutine")
     id("FeatureSerialization")
     id("FeatureHttpClient")
+    id("FeaturePane")
 }
 
 kotlin {
