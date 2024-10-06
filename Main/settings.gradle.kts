@@ -93,3 +93,14 @@ File(settingsDir, "./memories")
     ?.onEach { dir ->
         include(":memories:${dir.name}")
     }?.toList()
+
+
+File(settingsDir, "./philosopher")
+    .listFiles()
+    ?.asSequence()
+    ?.filter { it.isDirectory }
+    ?.filter { it.listFiles()?.map { it.name }?.contains("build.gradle.kts") == true }
+    ?.onEach { dir ->
+        include(":philosopher:${dir.name}")
+    }
+    ?.toList()
