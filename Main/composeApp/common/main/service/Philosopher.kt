@@ -1,5 +1,6 @@
 package main.service
 
+import ProjectConfig.GEMINI_API_KEY
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Card
 import androidx.compose.material3.Text
@@ -11,8 +12,6 @@ import core.adt.getOrElse
 import core.model.impl.PhilosopherSophia
 import core.ui.designsystem.atom.STextTitle
 import org.jetbrains.compose.ui.tooling.preview.Preview
-
-expect val GEMINI_API_KEY: String
 
 val PhilosopherShopia
     get() = PhilosopherSophia(
