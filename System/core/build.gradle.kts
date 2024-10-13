@@ -16,6 +16,7 @@ plugins {
 kotlin {
     sourceSets {
         commonMain.dependencies {
+            Shared("gemini")
             Shared("preference")
         }
     }
