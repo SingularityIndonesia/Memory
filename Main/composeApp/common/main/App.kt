@@ -12,7 +12,6 @@ import androidx.navigation.compose.rememberNavController
 import authentication.pane.challange.AuthenticationChallangePane
 import core.ui.designsystem.atom.SIconButton
 import main.protocol.AuthenticationProtocol
-import main.service.PreviewSophiaPreview
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import system.designsystem.resources.Res
 import system.designsystem.resources.ic_add
@@ -21,25 +20,24 @@ import system.designsystem.resources.ic_add
 fun App() {
     val navController = rememberNavController()
 
-//    AuthenticationProtocol(
-//        chalange = { e, onSuccess ->
-//            AnimatedVisibility(
-//                visible = true,
-//                enter = slideInVertically(),
-//                exit = slideOutVertically(),
-//                content = {
-//                    AuthenticationChallangePane(
-//                        onSuccess = onSuccess,
-//                    )
-//                },
-//            )
-//        },
-//    ) {
-//        Feature(
-//            navController = navController,
-//        )
-//    }
-    PreviewSophiaPreview()
+    AuthenticationProtocol(
+        chalange = { e, onSuccess ->
+            AnimatedVisibility(
+                visible = true,
+                enter = slideInVertically(),
+                exit = slideOutVertically(),
+                content = {
+                    AuthenticationChallangePane(
+                        onSuccess = onSuccess,
+                    )
+                },
+            )
+        },
+    ) {
+        Feature(
+            navController = navController,
+        )
+    }
 }
 
 @Preview
