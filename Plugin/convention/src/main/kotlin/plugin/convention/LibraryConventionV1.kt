@@ -9,6 +9,7 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.get
 import plugin.convention.companion.DefaultConfigs.EXCLUDED_RESOURCES
+import plugin.convention.companion.kotlinCompile
 import plugin.convention.companion.versionCatalog
 import plugin.convention.companion.withKotlinMultiplatformExtension
 import plugin.convention.companion.withLibraryExtension
@@ -24,6 +25,12 @@ class LibraryConventionV1 : Plugin<Project> {
                 apply("org.jetbrains.kotlin.multiplatform")
             }
 
+            kotlinCompile {
+                kotlinOptions {
+                    freeCompilerArgs += listOf("-Xskip-prerelease-check")
+                }
+            }
+
             withKotlinMultiplatformExtension {
                 jvm("desktop")
 
@@ -34,7 +41,10 @@ class LibraryConventionV1 : Plugin<Project> {
                         }
                     }
                 }
-
+                sourceSets.all {
+                    languageSettings.enableLanguageFeature("ExplicitBackingFields")
+                }
+                
                 sourceSets.commonMain {
                     kotlin.srcDir("common")
                     resources.srcDirs("common/res")
